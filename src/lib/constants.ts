@@ -28,3 +28,9 @@ export const CONTACT_INFO = {
   email: "hello@egoragames.com",
   address: "TODO: şirket adresi",
 } as const;
+
+// TODO: gerçek Formspree form ID'si ile değiştirilecek — https://formspree.io/forms
+export const FORMSPREE_ENDPOINT = "https://formspree.io/f/TODO_FORM_ID";
+
+// TODO: gerçek Cloudflare Web Analytics token'ı ile değiştirilecek — https://dash.cloudflare.com
+export const CLOUDFLARE_ANALYTICS_TOKEN = "TODO_CLOUDFLARE_BEACON_TOKEN";

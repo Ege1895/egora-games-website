@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { PlatformBadges } from "@/components/ui/PlatformBadge";
+import { VideoEmbed } from "@/components/ui/VideoEmbed";
 import { Reveal } from "@/components/ui/Reveal";
 import { Game } from "@/types";
 
@@ -88,8 +89,7 @@ export function GameDetail({ game }: { game: Game }) {
         <section className="border-t border-border py-16 sm:py-24">
           <Container className="flex flex-col gap-6">
             <h2 className="text-2xl font-bold text-foreground">Trailer</h2>
-            {/* TODO: Faz 5 — YouTube/Vimeo embed ile değiştirilecek */}
-            <div className="aspect-video w-full rounded-2xl border border-border bg-background-elevated" />
+            <VideoEmbed url={game.trailerUrl} title={`${game.title} trailer`} />
           </Container>
         </section>
       )}

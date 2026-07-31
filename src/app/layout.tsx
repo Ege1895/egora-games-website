@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
+import {
+  CLOUDFLARE_ANALYTICS_TOKEN,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/constants";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -35,6 +41,12 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        {/* TODO: CLOUDFLARE_ANALYTICS_TOKEN (lib/constants.ts) gerçek beacon token'ıyla değiştirilecek */}
+        <Script
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: CLOUDFLARE_ANALYTICS_TOKEN })}
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

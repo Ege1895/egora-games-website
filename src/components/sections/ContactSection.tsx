@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { GradientBackdrop } from "@/components/ui/GradientBackdrop";
-import { CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
+import { CONTACT_INFO, FORMSPREE_ENDPOINT, SOCIAL_LINKS } from "@/lib/constants";
 
 const SOCIAL_ITEMS = [
   { label: "Twitter", href: SOCIAL_LINKS.twitter },
@@ -82,12 +82,14 @@ export function ContactSection() {
         </div>
 
         <motion.form
+          action={FORMSPREE_ENDPOINT}
+          method="POST"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
           className="flex flex-col gap-5 rounded-3xl border border-border bg-background-elevated p-8"
         >
-          {/* TODO: Faz 5 — Formspree/Web3Forms endpoint'i ile bağlanacak, şu an sadece görsel form */}
+          {/* TODO: FORMSPREE_ENDPOINT (lib/constants.ts) gerçek form ID'siyle değiştirilecek */}
           <div className="flex flex-col gap-2">
             <label htmlFor="name" className="text-sm font-medium text-foreground">
               Name
