@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import { StarIcon } from "@heroicons/react/24/solid";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -31,6 +32,17 @@ export function GameDetail({ game }: { game: Game }) {
           <p className="max-w-2xl text-lg text-foreground-muted">
             {game.tagline}
           </p>
+          {/* TODO: gerçek kullanıcı puanı bağlanacak */}
+          <div className="flex items-center gap-1" aria-label="Değerlendirme: 4.5 / 5 (TODO)">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <StarIcon
+                key={i}
+                aria-hidden
+                className={i < 4 ? "h-5 w-5 text-accent" : "h-5 w-5 text-foreground-muted/30"}
+              />
+            ))}
+            <span className="ml-1 text-sm text-foreground-muted">(TODO)</span>
+          </div>
           <PlatformBadges platforms={game.platforms} />
           {game.storeLinks.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-4">
