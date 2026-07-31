@@ -21,6 +21,7 @@ export default function GamesPage() {
       <Container className="relative flex flex-col gap-16">
         <Reveal>
           <SectionHeading
+            as="h1"
             eyebrow="Our Games"
             title="All Games"
             description="Every world we're currently building, from early prototypes to shipped titles."

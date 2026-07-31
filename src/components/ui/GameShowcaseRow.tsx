@@ -73,12 +73,12 @@ export function GameShowcaseRow({
                     )}
                   />
                 ))}
-                <span className="ml-1 text-xs text-white/70">(TODO)</span>
+                <span className="ml-1 text-xs text-white">(TODO)</span>
               </div>
             </div>
           </div>
 
-          <p className="text-sm text-white/80">{game.description}</p>
+          <p className="text-sm text-white">{game.description}</p>
 
           <Link
             href={`/games/${game.slug}`}

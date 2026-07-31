@@ -6,12 +6,14 @@ export function SectionHeading({
   description,
   align = "center",
   className,
+  as: Heading = "h2",
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   align?: "center" | "left";
   className?: string;
+  as?: "h1" | "h2";
 }) {
   return (
     <div
@@ -26,7 +28,9 @@ export function SectionHeading({
           {eyebrow}
         </span>
       )}
-      <h2 className="text-3xl font-bold text-foreground sm:text-4xl">{title}</h2>
+      <Heading className="text-3xl font-bold text-foreground sm:text-4xl">
+        {title}
+      </Heading>
       {description && (
         <p
           className={cn(
