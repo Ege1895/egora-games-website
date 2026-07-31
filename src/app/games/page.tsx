@@ -1,9 +1,18 @@
+import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GameShowcaseRow } from "@/components/ui/GameShowcaseRow";
 import { GradientBackdrop } from "@/components/ui/GradientBackdrop";
 import { Reveal } from "@/components/ui/Reveal";
 import { GAMES } from "@/lib/mock-games";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Games",
+  description:
+    "Explore the worlds Egora Games is currently building and shipping.",
+  path: "/games",
+});
 
 export default function GamesPage() {
   return (

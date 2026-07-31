@@ -4,11 +4,14 @@ import { MissionVision } from "@/components/sections/MissionVision";
 import { CompanyValues } from "@/components/sections/CompanyValues";
 import { Timeline } from "@/components/sections/Timeline";
 import { Technology } from "@/components/sections/Technology";
+import { buildMetadata } from "@/lib/seo";
 
-// TODO: Faz 4'te gerçek metadata (description, OG, Twitter Card) ile genişletilecek
-export const metadata: Metadata = {
-  title: "About — Egora Games",
-};
+export const metadata: Metadata = buildMetadata({
+  title: "About",
+  description:
+    "Learn about Egora Games' mission, vision, values, and the story behind the studio.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

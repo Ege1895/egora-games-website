@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,10 +15,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// TODO: Faz 4'te sayfa bazlı metadata (title, description, OG, Twitter Card) ile genişletilecek
 export const metadata: Metadata = {
-  title: "Egora Games",
-  description: "Egora Games — kurumsal web sitesi",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
 };
 
 export default function RootLayout({

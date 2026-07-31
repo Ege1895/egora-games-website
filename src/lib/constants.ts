@@ -1,4 +1,8 @@
 export const SITE_NAME = "Egora Games";
+// TODO: custom domain doğrulanınca (Faz 7) bu değeri kontrol et
+export const SITE_URL = "https://egoragames.com";
+export const SITE_DESCRIPTION =
+  "Egora Games is an independent studio building premium, story-driven games across PC and console platforms.";
 
 // TODO: gerçek sosyal medya linkleri belirlenince güncelle
 export const SOCIAL_LINKS = {

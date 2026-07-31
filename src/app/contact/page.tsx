@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { buildMetadata } from "@/lib/seo";
 
-// TODO: Faz 4'te gerçek metadata (description, OG, Twitter Card) ile genişletilecek
-export const metadata: Metadata = {
-  title: "Contact — Egora Games",
-};
+export const metadata: Metadata = buildMetadata({
+  title: "Contact",
+  description: "Get in touch with Egora Games for press, partnerships, or general inquiries.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

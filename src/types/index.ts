@@ -18,22 +18,3 @@ export type Game = {
     url: string;
   }[];
 };
-
-export type NewsItem = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  coverImage: string;
-  publishedAt: string;
-  author: string;
-  tags: string[];
-};
-
-export type JobOpening = {
-  slug: string;
-  title: string;
-  department: string;
-  location: string;
-  type: "Full-time" | "Part-time" | "Contract" | "Remote";
-};
