@@ -1,31 +1,36 @@
 import { Game } from "@/types";
 
-// TODO: gerçek oyun verileriyle değiştirilecek — görseller public/images/games/ altına eklenecek
+// TODO: kalan mock oyun verileriyle değiştirilecek — görseller public/images/games/ altına eklenecek
 export const GAMES: Game[] = [
   {
-    slug: "nebula-drift",
-    title: "Nebula Drift",
-    tagline: "Bir galaksi arası yarış deneyimi",
+    slug: "nublox",
+    title: "Nublox",
+    tagline: "Patlaman gereken an, senin elinde",
     description:
-      "Nebula Drift, oyuncuları yıldızlararası pistlerde hız sınırlarını zorlamaya davet eden bir arcade yarış oyunudur. TODO: gerçek oyun açıklaması eklenecek.",
-    coverImage: "/images/games/nebula-drift/cover.webp",
-    bannerImage: "/images/games/nebula-drift/banner.webp",
+      "Nublox, klasik blok bulmaca (block blast) formülüne özgün bir mekanik ekliyor: satır ya da sütun dolduğunda bloklar kendiliğinden patlamıyor. Blast Mode devreye girdiğinde, kısa bir süre içinde dolu blokları elinle patlatman gerekiyor — hem strateji hem refleks bir arada. Bazı bloklar iki kez patlatılması gereken 'katılaşmış' bloklara dönüşüyor, ızgara da ilerledikçe 4x4'ten 8x8'e büyüyor. Ücretsiz indirilebilir.",
+    // TODO: gerçek ekran görüntüleri/key art eklenince değiştirilecek
+    coverImage: "/images/games/nublox/cover.webp",
+    bannerImage: "/images/games/nublox/banner.webp",
     screenshots: [
-      "/images/games/nebula-drift/screenshot-1.webp",
-      "/images/games/nebula-drift/screenshot-2.webp",
-      "/images/games/nebula-drift/screenshot-3.webp",
+      "/images/games/nublox/screenshot-1.webp",
+      "/images/games/nublox/screenshot-2.webp",
+      "/images/games/nublox/screenshot-3.webp",
     ],
-    genre: "Racing",
-    platforms: ["PC", "PlayStation", "Xbox"],
-    releaseDate: "TODO",
+    genre: "Block Puzzle",
+    platforms: ["Mobile"],
+    releaseDate: "Yayında",
     features: [
-      "Prosedürel olarak üretilen galaksi pistleri",
-      "Çevrimiçi 12 kişilik yarışlar",
-      "Gemi özelleştirme sistemi",
+      "SURGE 🔥 — Blast Mode'da parmağını bloklar üzerinde gezdirerek zincirleme patlatma yap",
+      "FREEZE ❄️ — Blast süresini birkaç saniye durdurup nefes alacak zaman kazan",
+      "NOVA ✨ — Tek dokunuşla tüm tahtayı temizleyen en güçlü hamle",
+      "7 günlük ödül serisi — kaçırırsan reklam ya da güçle serini koru",
+      "Günlük Meydan Okuma — herkes aynı gün aynı bulmacayı çözüyor",
+      "Bronz'dan Elmas'a 5 ligli haftalık sıralama sistemi",
+      "Global, günlük, haftalık ve lig bazlı liderlik tabloları — ilerleme cihazlar arası senkronize",
     ],
+    // TODO: Google Play mağaza linki eklenecek (paket adı: com.egoragames.nublox)
     storeLinks: [
-      { label: "Steam", url: "#" },
-      { label: "Epic Games Store", url: "#" },
+      { label: "App Store", url: "https://apps.apple.com/app/id6779168759" },
     ],
   },
   {
