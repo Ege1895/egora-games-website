@@ -1,6 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { GameCard } from "@/components/ui/GameCard";
+import { GameShowcaseRow } from "@/components/ui/GameShowcaseRow";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { GAMES } from "@/lib/mock-games";
@@ -17,10 +17,10 @@ export function FeaturedGames() {
           />
         </Reveal>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-col gap-16">
           {GAMES.map((game, index) => (
             <Reveal key={game.slug} delay={index * 0.1}>
-              <GameCard game={game} />
+              <GameShowcaseRow game={game} reverse={index % 2 === 1} />
             </Reveal>
           ))}
         </div>
