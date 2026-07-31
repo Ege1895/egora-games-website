@@ -2,11 +2,14 @@
 
 /*
  * Egora Games tema sistemi — tüm renkler CSS custom property üzerinden.
- * TODO: Kesin marka renkleri belirlendiğinde bu bloktaki değerleri güncelle.
- * Şimdilik nötr/koyu (dark, premium) bir palet kullanılıyor; component'lerde
- * asla hardcoded hex kullanılmamalı, her zaman aşağıdaki değişkenler (veya
- * bunlara karşılık gelen Tailwind utility'leri, örn. bg-background,
- * text-foreground, bg-primary, text-accent) üzerinden gidilmeli.
+ * Marka renkleri "Cobalt Pulse" paleti olarak onaylandı (primary: mavi,
+ * accent: mercan). --color-primary, kart/buton gibi dolu (solid) arka
+ * planlarda beyaz metinle WCAG AA kontrastını (≥4.5:1) sağlamak için
+ * onaylanan #3b82f6 tonundan bir kademe koyu seçildi; #3b82f6 hover
+ * durumunda kullanılıyor. Component'lerde asla hardcoded hex
+ * kullanılmamalı, her zaman aşağıdaki değişkenler (veya bunlara karşılık
+ * gelen Tailwind utility'leri, örn. bg-background, text-foreground,
+ * bg-primary, text-accent) üzerinden gidilmeli.
  */
 :root {
   --background: #0a0a0f;
@@ -14,12 +17,11 @@
   --foreground: #f5f5f7;
   --foreground-muted: #a1a1aa;
 
-  /* TODO: Egora Games marka rengi belirlenince değiştir (placeholder: elektrik moru) */
-  --color-primary: #6d5bff;
-  --color-primary-hover: #8574ff;
-  /* TODO: Egora Games ikincil marka rengi belirlenince değiştir (placeholder: siber camgöbeği) */
-  --color-accent: #22d3c9;
-  --color-accent-hover: #4de3da;
+  /* Egora Games marka rengi — "Cobalt Pulse" (onaylandı) */
+  --color-primary: #2563eb;
+  --color-primary-hover: #3b82f6;
+  --color-accent: #ff6b4a;
+  --color-accent-hover: #ff8567;
 
   --border: #24242e;
   --success: #22c55e;
