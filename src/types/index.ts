@@ -13,8 +13,9 @@ export type Game = {
   platforms: Platform[];
   releaseDate: string;
   features: string[];
+  // url yoksa mağazada "Coming Soon" (inceleme/test sürecinde) olarak gösterilir
   storeLinks: {
     label: string;
-    url: string;
+    url?: string;
   }[];
 };

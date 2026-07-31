@@ -4,11 +4,11 @@ import { StarIcon } from "@heroicons/react/24/solid";
 import { Game } from "@/types";
 import { cn } from "@/lib/utils";
 
-// TODO: gerçek App Store / Google Play linkleriyle değiştirilecek
-const STORE_BADGES = [
-  { label: "App Store", sublabel: "Download on the", href: "#" },
-  { label: "Google Play", sublabel: "Get it on", href: "#" },
-];
+function storeSublabel(label: string) {
+  if (label.toLowerCase().includes("app store")) return "Download on the";
+  if (label.toLowerCase().includes("google play")) return "Get it on";
+  return "Available on";
+}
 
 export function GameShowcaseRow({
   game,
@@ -18,6 +18,7 @@ export function GameShowcaseRow({
   reverse?: boolean;
 }) {
   const thumbnails = game.screenshots.slice(0, 2);
+  const isLive = game.storeLinks.some((link) => link.url);
 
   return (
     <div className={cn("relative", reverse && "lg:flex lg:justify-end")}>
@@ -58,23 +59,25 @@ export function GameShowcaseRow({
               <h3 className="text-lg font-bold leading-tight">
                 {game.title}
               </h3>
-              {/* TODO: gerçek kullanıcı puanı bağlanacak */}
-              <div
-                className="flex items-center gap-0.5"
-                aria-label="Değerlendirme: 4.5 / 5 (TODO)"
-              >
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <StarIcon
-                    key={i}
-                    aria-hidden
-                    className={cn(
-                      "h-3.5 w-3.5",
-                      i < 4 ? "text-accent" : "text-white/30"
-                    )}
-                  />
-                ))}
-                <span className="ml-1 text-xs text-white">(TODO)</span>
-              </div>
+              {/* Yayınlanmamış oyunlarda puan gösterilmiyor. TODO: gerçek kullanıcı puanı bağlanacak */}
+              {isLive && (
+                <div
+                  className="flex items-center gap-0.5"
+                  aria-label="Değerlendirme: 4.5 / 5 (TODO)"
+                >
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <StarIcon
+                      key={i}
+                      aria-hidden
+                      className={cn(
+                        "h-3.5 w-3.5",
+                        i < 4 ? "text-accent" : "text-white/30"
+                      )}
+                    />
+                  ))}
+                  <span className="ml-1 text-xs text-white">(TODO)</span>
+                </div>
+              )}
             </div>
           </div>
 
@@ -112,7 +115,7 @@ export function GameShowcaseRow({
           </div>
         )}
 
-        {/* Mağaza linkleri */}
+        {/* Mağaza linkleri — canlı olan tıklanabilir, olmayan "Coming Soon" olarak gösterilir */}
         {game.storeLinks.length > 0 && (
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <span className="text-xs font-semibold uppercase tracking-wide text-foreground-muted">
@@ -120,20 +123,35 @@ export function GameShowcaseRow({
               <br />
               now at
             </span>
-            {STORE_BADGES.map((badge) => (
-              <a
-                key={badge.label}
-                href={badge.href}
-                className="flex items-center gap-2 rounded-xl border border-border bg-background-elevated px-4 py-2 text-foreground transition-colors hover:border-primary"
-              >
-                <span className="flex flex-col leading-tight">
-                  <span className="text-[10px] text-foreground-muted">
-                    {badge.sublabel}
+            {game.storeLinks.map((link) =>
+              link.url ? (
+                <a
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-xl border border-border bg-background-elevated px-4 py-2 text-foreground transition-colors hover:border-primary"
+                >
+                  <span className="flex flex-col leading-tight">
+                    <span className="text-[10px] text-foreground-muted">
+                      {storeSublabel(link.label)}
+                    </span>
+                    <span className="text-sm font-semibold">{link.label}</span>
                   </span>
-                  <span className="text-sm font-semibold">{badge.label}</span>
+                </a>
+              ) : (
+                <span
+                  key={link.label}
+                  aria-label={`${link.label}: Coming Soon`}
+                  className="flex items-center gap-2 rounded-xl border border-dashed border-border px-4 py-2 text-foreground-muted"
+                >
+                  <span className="flex flex-col leading-tight">
+                    <span className="text-[10px]">Coming Soon</span>
+                    <span className="text-sm font-semibold">{link.label}</span>
+                  </span>
                 </span>
-              </a>
-            ))}
+              )
+            )}
           </div>
         )}
       </div>

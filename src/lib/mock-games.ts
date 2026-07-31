@@ -1,6 +1,5 @@
 import { Game } from "@/types";
 
-// TODO: kalan mock oyun verileriyle değiştirilecek — görseller public/images/games/ altına eklenecek
 export const GAMES: Game[] = [
   {
     slug: "nublox",
@@ -28,57 +27,37 @@ export const GAMES: Game[] = [
       "Bronz'dan Elmas'a 5 ligli haftalık sıralama sistemi",
       "Global, günlük, haftalık ve lig bazlı liderlik tabloları — ilerleme cihazlar arası senkronize",
     ],
-    // TODO: Google Play mağaza linki eklenecek (paket adı: com.egoragames.nublox)
+    // App Store: production/yayında. Google Play: inceleme sürecinde (url yok -> Coming Soon).
     storeLinks: [
       { label: "App Store", url: "https://apps.apple.com/app/id6779168759" },
+      { label: "Google Play" },
     ],
   },
   {
-    slug: "ironforge-legacy",
-    title: "Ironforge Legacy",
-    tagline: "Taktiksel fantastik strateji",
+    slug: "the-process",
+    title: "The Process",
+    tagline: "Bağla, büyüt, reboot et.",
     description:
-      "Ironforge Legacy, oyuncuları krallıklar kurmaya ve ordular yönetmeye çağıran derin bir strateji oyunudur. TODO: gerçek oyun açıklaması eklenecek.",
-    coverImage: "/images/games/ironforge-legacy/cover.webp",
-    bannerImage: "/images/games/ironforge-legacy/banner.webp",
-    screenshots: [
-      "/images/games/ironforge-legacy/screenshot-1.webp",
-      "/images/games/ironforge-legacy/screenshot-2.webp",
-    ],
-    genre: "Strategy",
-    platforms: ["PC"],
-    releaseDate: "TODO",
+      "The Process, steampunk bir fabrika panosunda üretim istasyonlarını boru hatlarıyla birbirine bağlayıp üretim zincirleri kurduğun bir idle simülasyon. Üretimini büyüt, istasyonlarını yükselt, yeni istasyon tiplerinin kilidini aç — ve belirli bir eşiğe ulaştığında 'reboot' yaparak kalıcı bir çarpan kazan, bir sonraki turda çok daha hızlı büyü. Oyun bilinçli olarak %60 idle / %40 aktif dengesinde tasarlandı: ekrana kilitlenmene gerek yok, ama dokunuşların da boşa gitmiyor. Sabırlı büyümeyi ödüllendiren, dokunman gerektiğinde orada olan ama gerekmediğinde seni rahat bırakan bir oyun.",
+    // TODO: gerçek ekran görüntüleri/key art eklenince değiştirilecek — kullanıcıdan hangi görsellerin kullanılabileceği soruldu
+    coverImage: "/images/games/the-process/cover.webp",
+    bannerImage: "/images/games/the-process/banner.webp",
+    screenshots: [],
+    genre: "Idle Simulation",
+    platforms: ["Mobile"],
+    releaseDate: "Yakında",
     features: [
-      "Dinamik diplomasi sistemi",
-      "Sezonluk çok oyunculu turnuvalar",
-      "Elle çizilmiş fantastik dünya haritası",
+      "İki katmanlı prestij: Reboot ile büyü, ileri seviyede Ascension ile kalıcı 'Aether' kaynağı ve özel Aether Conduit node'unun kilidini aç",
+      "Blueprint Perk Ağacı — reboot'larda kazanılan puanlarla doldurulan 3 dal, 4 kademelik kalıcı yetenek ağacı",
+      "Günlük Kontrat Panosu ve haftalık Foreman's Trial ile kısa vadeli hedefler ve ek ödüller",
+      "Vardiya Defteri ile günlük giriş serisi, Achievement ve Node Mastery ile uzun vadeli ilerleme",
+      "Liderlik tablosunda diğer oyuncularla üretimini karşılaştır",
+      "Kazanılabilir boru renk paletleri ve node skinleri — satılmaz, yalnızca oyun içi başarımla açılır",
+      "Fabrika Defteri'nde detaylı üretim istatistikleri",
+      "Saygılı gelir modeli: rewarded reklamlar tamamen isteğe bağlı, ilerleme satın alma paketi yok, günde en fazla 2 bildirim",
     ],
-    storeLinks: [{ label: "Steam", url: "#" }],
-  },
-  {
-    slug: "echo-protocol",
-    title: "Echo Protocol",
-    tagline: "Siber-punk gizlilik aksiyonu",
-    description:
-      "Echo Protocol, distopik bir mega şehirde geçen taktiksel bir gizlilik-aksiyon oyunudur. TODO: gerçek oyun açıklaması eklenecek.",
-    coverImage: "/images/games/echo-protocol/cover.webp",
-    bannerImage: "/images/games/echo-protocol/banner.webp",
-    screenshots: [
-      "/images/games/echo-protocol/screenshot-1.webp",
-      "/images/games/echo-protocol/screenshot-2.webp",
-    ],
-    genre: "Action",
-    platforms: ["PC", "PlayStation", "Xbox", "Nintendo Switch"],
-    releaseDate: "TODO",
-    features: [
-      "Zaman manipülasyonu mekanikleri",
-      "Dallanan hikaye anlatımı",
-      "Tam vücut motion-capture animasyon",
-    ],
-    storeLinks: [
-      { label: "Steam", url: "#" },
-      { label: "PlayStation Store", url: "#" },
-    ],
+    // Her iki mağazada da test sürecinde (url yok -> Coming Soon).
+    storeLinks: [{ label: "App Store" }, { label: "Google Play" }],
   },
 ];
 

@@ -10,6 +10,8 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Game } from "@/types";
 
 export function GameDetail({ game }: { game: Game }) {
+  const isLive = game.storeLinks.some((link) => link.url);
+
   return (
     <main className="flex flex-1 flex-col">
       <section className="relative border-b border-border">
@@ -33,25 +35,37 @@ export function GameDetail({ game }: { game: Game }) {
           <p className="max-w-2xl text-lg text-foreground-muted">
             {game.tagline}
           </p>
-          {/* TODO: gerçek kullanıcı puanı bağlanacak */}
-          <div className="flex items-center gap-1" aria-label="Değerlendirme: 4.5 / 5 (TODO)">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <StarIcon
-                key={i}
-                aria-hidden
-                className={i < 4 ? "h-5 w-5 text-accent" : "h-5 w-5 text-foreground-muted/30"}
-              />
-            ))}
-            <span className="ml-1 text-sm text-foreground-muted">(TODO)</span>
-          </div>
+          {/* Yayınlanmamış oyunlarda puan gösterilmiyor. TODO: gerçek kullanıcı puanı bağlanacak */}
+          {isLive && (
+            <div className="flex items-center gap-1" aria-label="Değerlendirme: 4.5 / 5 (TODO)">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <StarIcon
+                  key={i}
+                  aria-hidden
+                  className={i < 4 ? "h-5 w-5 text-accent" : "h-5 w-5 text-foreground-muted/30"}
+                />
+              ))}
+              <span className="ml-1 text-sm text-foreground-muted">(TODO)</span>
+            </div>
+          )}
           <PlatformBadges platforms={game.platforms} />
           {game.storeLinks.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-4">
-              {game.storeLinks.map((link) => (
-                <Button key={link.label} href={link.url} variant="primary">
-                  {link.label}
-                </Button>
-              ))}
+              {game.storeLinks.map((link) =>
+                link.url ? (
+                  <Button key={link.label} href={link.url} variant="primary">
+                    {link.label}
+                  </Button>
+                ) : (
+                  <span
+                    key={link.label}
+                    aria-label={`${link.label}: Coming Soon`}
+                    className="inline-flex items-center gap-2 rounded-full border border-dashed border-border px-6 py-3 text-sm font-semibold text-foreground-muted"
+                  >
+                    {link.label} · Coming Soon
+                  </span>
+                )
+              )}
             </div>
           )}
         </Container>
