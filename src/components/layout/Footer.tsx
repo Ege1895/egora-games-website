@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
 import {
   CONTACT_INFO,
   FOOTER_LINKS,
@@ -20,6 +21,35 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border bg-background-elevated">
+      <Container className="border-b border-border py-12">
+        <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-border bg-background px-8 py-10 text-center lg:flex-row lg:text-left">
+          <div>
+            <h2 className="text-2xl font-bold text-foreground">
+              Find out about new games
+            </h2>
+            <p className="mt-2 text-sm text-foreground-muted">
+              Subscribe to get updated on future releases and studio news.
+            </p>
+          </div>
+          {/* TODO: Faz 5 — Formspree/Web3Forms endpoint'i ile bağlanacak */}
+          <form className="flex w-full max-w-md flex-col gap-3 sm:flex-row">
+            <label htmlFor="footer-email" className="sr-only">
+              E-posta adresiniz
+            </label>
+            <input
+              id="footer-email"
+              type="email"
+              required
+              placeholder="Enter your email"
+              className="w-full rounded-full border border-border bg-background-elevated px-5 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none"
+            />
+            <Button type="submit" className="shrink-0">
+              Subscribe
+            </Button>
+          </form>
+        </div>
+      </Container>
+
       <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-4">
           <span className="text-xl font-bold text-foreground">{SITE_NAME}</span>
