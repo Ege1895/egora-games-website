@@ -8,20 +8,16 @@ export const SOCIAL_LINKS = {
   discord: "https://discord.gg/egoragames",
 } as const;
 
+// TODO: Careers, News, Press Kit sayfaları eklenince buraya geri eklenecek
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Games", href: "/games" },
   { label: "About", href: "/about" },
-  { label: "Careers", href: "/careers" },
-  { label: "News", href: "/news" },
-  { label: "Press Kit", href: "/press-kit" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
-export const FOOTER_LINKS = [
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of Service", href: "/terms-of-service" },
-] as const;
+// TODO: Privacy Policy, Terms of Service sayfaları eklenince buraya geri eklenecek
+export const FOOTER_LINKS: readonly { label: string; href: string }[] = [];
 
 // TODO: gerçek iletişim bilgileri belirlenince güncelle
 export const CONTACT_INFO = {
