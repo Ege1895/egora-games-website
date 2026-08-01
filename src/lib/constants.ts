@@ -23,14 +23,11 @@ export const NAV_LINKS = [
 // TODO: Privacy Policy, Terms of Service sayfaları eklenince buraya geri eklenecek
 export const FOOTER_LINKS: readonly { label: string; href: string }[] = [];
 
-// TODO: gerçek iletişim bilgileri belirlenince güncelle
+// TODO: şirket adresi belirlenince güncelle
 export const CONTACT_INFO = {
-  email: "hello@egoragames.com",
+  email: "egoragames@gmail.com",
   address: "TODO: şirket adresi",
 } as const;
 
-// TODO: gerçek Formspree form ID'si ile değiştirilecek — https://formspree.io/forms
-export const FORMSPREE_ENDPOINT = "https://formspree.io/f/TODO_FORM_ID";
-
-// TODO: gerçek Cloudflare Web Analytics token'ı ile değiştirilecek — https://dash.cloudflare.com
-export const CLOUDFLARE_ANALYTICS_TOKEN = "TODO_CLOUDFLARE_BEACON_TOKEN";
+// Cloudflare Worker (workers/contact-form) → Brevo API üzerinden mail gönderir
+export const CONTACT_API_ENDPOINT = "/api/contact";
