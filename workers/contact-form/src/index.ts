@@ -60,7 +60,7 @@ function buildEmailHtml(fields: {
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#0a0a0f; padding:32px 12px;">
     <tr><td align="center">
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px; width:100%; background-color:#12121a; border-radius:14px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.4);">
-        <tr><td style="background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%); padding:34px 40px;">
+        <tr><td style="background:linear-gradient(135deg,#2563eb 0%,#3b82f6 100%); padding:34px 40px;">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
             <td>
               <div style="font-size:12px; letter-spacing:3px; color:#ffd8cc; font-weight:700; text-transform:uppercase;">EGORAGAMES.COM &middot; İletişim Formu</div>
@@ -71,7 +71,7 @@ function buildEmailHtml(fields: {
         </td></tr>
         <tr><td style="background-color:#1a1a24; padding:16px 40px; border-bottom:1px solid #24242e;">
           <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-            <td style="width:46px; height:46px; background:linear-gradient(135deg,#ff6b4a,#e5522f); border-radius:50%; text-align:center; vertical-align:middle; color:#ffffff; font-size:20px; font-weight:800;">${initial}</td>
+            <td style="width:46px; height:46px; background:linear-gradient(135deg,#ff6b4a,#ff8567); border-radius:50%; text-align:center; vertical-align:middle; color:#ffffff; font-size:20px; font-weight:800;">${initial}</td>
             <td style="padding-left:14px;">
               <div style="font-size:16px; font-weight:700; color:#f5f5f7;">${name}</div>
               <div style="font-size:13px; color:#a1a1aa;">${date}</div>
@@ -87,7 +87,7 @@ function buildEmailHtml(fields: {
             </td></tr>
             <tr><td style="padding:12px 16px; background-color:#1a1a24; border-radius:0; border-bottom:1px solid #24242e;">
               <span style="font-size:13px; color:#71717a;">E-posta</span>
-              <div style="font-size:15px; margin-top:2px;"><a href="mailto:${email}" style="color:#60a5fa; font-weight:600; text-decoration:none;">${email}</a></div>
+              <div style="font-size:15px; margin-top:2px;"><a href="mailto:${email}" style="color:#3b82f6; font-weight:600; text-decoration:none;">${email}</a></div>
             </td></tr>
             <tr><td style="padding:12px 16px; background-color:#1a1a24; border-radius:0 0 10px 10px;">
               <span style="font-size:13px; color:#71717a;">Konu</span>
@@ -97,7 +97,7 @@ function buildEmailHtml(fields: {
           <div style="font-size:11px; letter-spacing:1.5px; color:#71717a; font-weight:700; text-transform:uppercase; margin-bottom:10px;">Mesaj İçeriği</div>
           <div style="background-color:#1a1a24; border:1px solid #24242e; border-left:4px solid #ff6b4a; border-radius:10px; padding:20px 22px; font-size:15px; line-height:1.7; color:#f5f5f7;">${message}</div>
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px;"><tr><td align="center">
-            <a href="mailto:${email}?subject=Re:%20${encodeURIComponent(fields.subject || "Mesajınız")}" style="display:inline-block; background:linear-gradient(135deg,#2563eb,#1d4ed8); color:#ffffff; font-weight:800; font-size:15px; text-decoration:none; padding:14px 38px; border-radius:50px;">↩ Hemen Yanıtla</a>
+            <a href="mailto:${email}?subject=Re:%20${encodeURIComponent(fields.subject || "Mesajınız")}" style="display:inline-block; background:linear-gradient(135deg,#2563eb,#3b82f6); color:#ffffff; font-weight:800; font-size:15px; text-decoration:none; padding:14px 38px; border-radius:50px;">↩ Hemen Yanıtla</a>
           </td></tr></table>
         </td></tr>
         <tr><td style="background-color:#0a0a0f; padding:22px 40px; text-align:center;">
