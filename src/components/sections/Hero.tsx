@@ -1,20 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PlayCircleIcon, StarIcon, UsersIcon, TrophyIcon } from "@heroicons/react/24/solid";
+import {
+  PlayCircleIcon,
+  StarIcon,
+  DevicePhoneMobileIcon,
+  CalendarIcon,
+} from "@heroicons/react/24/solid";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { GradientBackdrop } from "@/components/ui/GradientBackdrop";
-
-// TODO: gerçek stüdyo istatistikleriyle değiştirilecek
-const STATS = [
-  { icon: PlayCircleIcon, label: "Games shipped", value: "3+" },
-  { icon: UsersIcon, label: "Players reached", value: "TODO" },
-  { icon: TrophyIcon, label: "Awards & nominations", value: "TODO" },
-];
+import { useLocale } from "@/lib/i18n/LocaleContext";
 
 export function Hero() {
+  const { t } = useLocale();
+
+  const stats = [
+    { icon: PlayCircleIcon, label: t.hero.statGamesLabel, value: "2" },
+    {
+      icon: DevicePhoneMobileIcon,
+      label: t.hero.statPlatformsLabel,
+      value: "iOS & Android",
+    },
+    { icon: CalendarIcon, label: t.hero.statFoundedLabel, value: "2026" },
+  ];
+
   return (
     <section className="relative overflow-hidden border-b border-border py-20 sm:py-28">
       <GradientBackdrop />
@@ -26,7 +37,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge>Independent Game Studio</Badge>
+            <Badge>{t.hero.badge}</Badge>
           </motion.div>
 
           <motion.h1
@@ -35,8 +46,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="max-w-xl text-5xl font-bold tracking-tight text-foreground sm:text-6xl"
           >
-            {/* TODO: gerçek marka sloganı belirlenecek */}
-            We craft worlds players remember
+            {t.hero.headline}
           </motion.h1>
 
           <motion.p
@@ -45,8 +55,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-md text-lg text-foreground-muted"
           >
-            Egora Games is an independent studio building premium,
-            story-driven games across PC and console platforms.
+            {t.hero.description}
           </motion.p>
 
           <motion.div
@@ -55,9 +64,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col gap-4 sm:flex-row"
           >
-            <Button href="/games">Explore Our Games</Button>
+            <Button href="/games">{t.hero.exploreGames}</Button>
             <Button href="/about" variant="secondary">
-              About the Studio
+              {t.hero.aboutStudio}
             </Button>
           </motion.div>
 
@@ -67,7 +76,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-4 grid grid-cols-3 gap-6 border-t border-border pt-8"
           >
-            {STATS.map((stat) => (
+            {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col gap-1">
                 <stat.icon aria-hidden className="h-5 w-5 text-accent" />
                 <dt className="text-2xl font-bold text-foreground">
@@ -95,7 +104,7 @@ export function Hero() {
           <div className="absolute bottom-10 left-10 flex items-center gap-2 rounded-2xl border border-border bg-background/90 px-4 py-3 shadow-lg backdrop-blur">
             <StarIcon aria-hidden className="h-5 w-5 text-accent" />
             <span className="text-sm font-semibold text-foreground">
-              Key art placeholder
+              {t.hero.keyArtPlaceholder}
             </span>
           </div>
         </motion.div>

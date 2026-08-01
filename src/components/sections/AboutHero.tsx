@@ -5,8 +5,11 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { GradientBackdrop } from "@/components/ui/GradientBackdrop";
+import { useLocale } from "@/lib/i18n/LocaleContext";
 
 export function AboutHero() {
+  const { t } = useLocale();
+
   return (
     <section className="relative overflow-hidden border-b border-border py-20 sm:py-28">
       <GradientBackdrop />
@@ -17,7 +20,7 @@ export function AboutHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge>Our Story</Badge>
+            <Badge>{t.aboutHero.badge}</Badge>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
@@ -25,8 +28,7 @@ export function AboutHero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl"
           >
-            {/* TODO: gerçek kuruluş hikayesi eklenecek */}
-            Built by players, for players
+            {t.aboutHero.headline}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -34,9 +36,7 @@ export function AboutHero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-xl text-lg text-foreground-muted"
           >
-            Egora Games started as a small team of developers who wanted to
-            build the kind of games they always wanted to play. TODO: gerçek
-            kuruluş hikayesi ile değiştirilecek.
+            {t.aboutHero.description}
           </motion.p>
         </div>
 
@@ -49,7 +49,7 @@ export function AboutHero() {
           {/* TODO: gerçek stüdyo/ekip fotoğrafıyla değiştirilecek */}
           <Image
             src="/images/studio/team.webp"
-            alt="Egora Games ekip görseli"
+            alt="Egora Games team"
             fill
             loading="lazy"
             sizes="(min-width: 1024px) 40vw, 100vw"

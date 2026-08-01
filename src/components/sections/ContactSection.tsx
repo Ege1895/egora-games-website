@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { GradientBackdrop } from "@/components/ui/GradientBackdrop";
+import { useLocale } from "@/lib/i18n/LocaleContext";
 import { CONTACT_API_ENDPOINT, CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
 
 const SOCIAL_ITEMS = [
@@ -19,6 +20,7 @@ const SOCIAL_ITEMS = [
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export function ContactSection() {
+  const { t } = useLocale();
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -40,18 +42,14 @@ export function ContactSection() {
 
       if (!response.ok) {
         const data = await response.json().catch(() => null);
-        throw new Error(data?.error || "Mesaj gönderilemedi.");
+        throw new Error(data?.error || t.contact.genericError);
       }
 
       setStatus("success");
       form.reset();
     } catch (error) {
       setStatus("error");
-      setErrorMessage(
-        error instanceof Error
-          ? error.message
-          : "Mesaj gönderilemedi, lütfen tekrar deneyin."
-      );
+      setErrorMessage(error instanceof Error ? error.message : t.contact.genericError);
     }
   }
 
@@ -66,13 +64,12 @@ export function ContactSection() {
             transition={{ duration: 0.6 }}
             className="flex flex-col gap-4"
           >
-            <Badge>Contact</Badge>
+            <Badge>{t.contact.badge}</Badge>
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Let&apos;s talk
+              {t.contact.title}
             </h1>
             <p className="max-w-md text-lg text-foreground-muted">
-              Whether it&apos;s press, partnerships, or just to say hi — we&apos;d
-              love to hear from you.
+              {t.contact.description}
             </p>
           </motion.div>
 
@@ -91,7 +88,7 @@ export function ContactSection() {
             </a>
             <div className="flex items-center gap-3 text-foreground-muted">
               <MapPinIcon aria-hidden className="h-5 w-5 text-primary" />
-              {CONTACT_INFO.address}
+              {t.companyAddress}
             </div>
           </motion.div>
 
@@ -102,7 +99,7 @@ export function ContactSection() {
             className="flex flex-col gap-3"
           >
             <h2 className="text-sm font-semibold uppercase tracking-wide text-foreground-muted">
-              Follow us
+              {t.contact.followUs}
             </h2>
             <div className="flex flex-wrap gap-3">
               {SOCIAL_ITEMS.map((item) => (
@@ -130,20 +127,20 @@ export function ContactSection() {
             <div className="flex flex-col items-center gap-4 py-12 text-center">
               <CheckCircleIcon aria-hidden className="h-12 w-12 text-primary" />
               <h3 className="text-xl font-bold text-foreground">
-                Mesajınız gönderildi
+                {t.contact.successTitle}
               </h3>
               <p className="text-sm text-foreground-muted">
-                En kısa sürede size dönüş yapacağız.
+                {t.contact.successDescription}
               </p>
               <Button variant="secondary" onClick={() => setStatus("idle")}>
-                Yeni mesaj gönder
+                {t.contact.sendAnother}
               </Button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="text-sm font-medium text-foreground">
-                  Name
+                  {t.contact.formNameLabel}
                 </label>
                 <input
                   id="name"
@@ -152,13 +149,13 @@ export function ContactSection() {
                   required
                   disabled={status === "submitting"}
                   className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
-                  placeholder="Your name"
+                  placeholder={t.contact.formNamePlaceholder}
                 />
               </div>
 
               <div className="flex flex-col gap-2">
                 <label htmlFor="email" className="text-sm font-medium text-foreground">
-                  Email
+                  {t.contact.formEmailLabel}
                 </label>
                 <input
                   id="email"
@@ -167,13 +164,13 @@ export function ContactSection() {
                   required
                   disabled={status === "submitting"}
                   className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
-                  placeholder="you@example.com"
+                  placeholder={t.contact.formEmailPlaceholder}
                 />
               </div>
 
               <div className="flex flex-col gap-2">
                 <label htmlFor="subject" className="text-sm font-medium text-foreground">
-                  Subject
+                  {t.contact.formSubjectLabel}
                 </label>
                 <input
                   id="subject"
@@ -182,13 +179,13 @@ export function ContactSection() {
                   required
                   disabled={status === "submitting"}
                   className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
-                  placeholder="What's this about?"
+                  placeholder={t.contact.formSubjectPlaceholder}
                 />
               </div>
 
               <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="text-sm font-medium text-foreground">
-                  Message
+                  {t.contact.formMessageLabel}
                 </label>
                 <textarea
                   id="message"
@@ -197,7 +194,7 @@ export function ContactSection() {
                   rows={5}
                   disabled={status === "submitting"}
                   className="resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
-                  placeholder="Tell us more..."
+                  placeholder={t.contact.formMessagePlaceholder}
                 />
               </div>
 
@@ -212,7 +209,7 @@ export function ContactSection() {
                 disabled={status === "submitting"}
                 className="mt-2 w-full"
               >
-                {status === "submitting" ? "Gönderiliyor..." : "Send Message"}
+                {status === "submitting" ? t.contact.sending : t.contact.sendMessage}
               </Button>
             </form>
           )}

@@ -1,10 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { useLocale } from "@/lib/i18n/LocaleContext";
 import {
   CONTACT_INFO,
   FOOTER_LINKS,
-  NAV_LINKS,
   SITE_NAME,
   SOCIAL_LINKS,
 } from "@/lib/constants";
@@ -17,7 +19,15 @@ const SOCIAL_ITEMS = [
 ];
 
 export function Footer() {
+  const { t } = useLocale();
   const year = new Date().getFullYear();
+
+  const navLinks = [
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.games, href: "/games" },
+    { label: t.nav.about, href: "/about" },
+    { label: t.nav.contact, href: "/contact" },
+  ];
 
   return (
     <footer className="border-t border-border bg-background-elevated">
@@ -25,26 +35,26 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-border bg-background px-8 py-10 text-center lg:flex-row lg:text-left">
           <div>
             <h2 className="text-2xl font-bold text-foreground">
-              Find out about new games
+              {t.footer.newsletterTitle}
             </h2>
             <p className="mt-2 text-sm text-foreground-muted">
-              Subscribe to get updated on future releases and studio news.
+              {t.footer.newsletterDescription}
             </p>
           </div>
           {/* TODO: Faz 5 — Formspree/Web3Forms endpoint'i ile bağlanacak */}
           <form className="flex w-full max-w-md flex-col gap-3 sm:flex-row">
             <label htmlFor="footer-email" className="sr-only">
-              E-posta adresiniz
+              {t.footer.emailSrLabel}
             </label>
             <input
               id="footer-email"
               type="email"
               required
-              placeholder="Enter your email"
+              placeholder={t.footer.emailPlaceholder}
               className="w-full rounded-full border border-border bg-background-elevated px-5 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none"
             />
             <Button type="submit" className="shrink-0">
-              Subscribe
+              {t.footer.subscribe}
             </Button>
           </form>
         </div>
@@ -53,15 +63,14 @@ export function Footer() {
       <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-4">
           <span className="text-xl font-bold text-foreground">{SITE_NAME}</span>
-          <p className="text-sm text-foreground-muted">
-            {/* TODO: gerçek şirket açıklaması eklenecek */}
-            Premium oyun deneyimleri tasarlıyoruz.
-          </p>
+          <p className="text-sm text-foreground-muted">{t.footer.tagline}</p>
         </div>
 
         <div className="flex flex-col gap-3">
-          <h3 className="text-sm font-semibold text-foreground">Navigasyon</h3>
-          {NAV_LINKS.map((link) => (
+          <h3 className="text-sm font-semibold text-foreground">
+            {t.footer.navigationHeading}
+          </h3>
+          {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -73,18 +82,22 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <h3 className="text-sm font-semibold text-foreground">İletişim</h3>
+          <h3 className="text-sm font-semibold text-foreground">
+            {t.footer.contactHeading}
+          </h3>
           <a
             href={`mailto:${CONTACT_INFO.email}`}
             className="text-sm text-foreground-muted transition-colors hover:text-foreground"
           >
             {CONTACT_INFO.email}
           </a>
-          <p className="text-sm text-foreground-muted">{CONTACT_INFO.address}</p>
+          <p className="text-sm text-foreground-muted">{t.companyAddress}</p>
         </div>
 
         <div className="flex flex-col gap-3">
-          <h3 className="text-sm font-semibold text-foreground">Sosyal</h3>
+          <h3 className="text-sm font-semibold text-foreground">
+            {t.footer.socialHeading}
+          </h3>
           {SOCIAL_ITEMS.map((item) => (
             <a
               key={item.label}
@@ -102,7 +115,7 @@ export function Footer() {
       <div className="border-t border-border">
         <Container className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
           <p className="text-xs text-foreground-muted">
-            &copy; {year} {SITE_NAME}. Tüm hakları saklıdır.
+            {t.footer.rightsReserved.replace("{year}", String(year))}
           </p>
           <div className="flex gap-6">
             {FOOTER_LINKS.map((link) => (
