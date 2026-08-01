@@ -1,53 +1,8 @@
-// TODO: gerçek şirket verileriyle değiştirilecek
+// Company values and timeline copy now live in the localization dictionaries
+// (src/lib/i18n/en.ts, src/lib/i18n/tr.ts) so they can be translated.
 
-export const TIMELINE = [
-  {
-    year: "TODO",
-    title: "Stüdyo kuruldu",
-    description: "Egora Games küçük bir ekip olarak yola çıktı.",
-  },
-  {
-    year: "TODO",
-    title: "İlk prototip",
-    description: "İlk oyun prototipimiz üzerinde çalışmaya başladık.",
-  },
-  {
-    year: "TODO",
-    title: "Ekip büyüdü",
-    description: "Stüdyomuza yeni yetenekler katıldı.",
-  },
-  {
-    year: "TODO",
-    title: "İlk oyun duyurusu",
-    description: "İlk oyunumuzu topluluğumuzla paylaştık.",
-  },
-];
-
-export const VALUES = [
-  {
-    title: "Craft over speed",
-    description: "We'd rather ship later and ship right.",
-  },
-  {
-    title: "Player trust",
-    description: "No dark patterns, no predatory monetization.",
-  },
-  {
-    title: "Ownership",
-    description: "Every team member owns their part of the vision.",
-  },
-  {
-    title: "Curiosity",
-    description: "We experiment constantly and aren't afraid to fail.",
-  },
-];
-
-// TODO: gerçek teknoloji stack'iyle değiştirilecek
-export const TECH_STACK = [
-  "Unreal Engine",
-  "Unity",
-  "C++",
-  "C#",
-  "Perforce",
-  "AWS",
-];
+// TODO: Nublox'un tam teknoloji stack'i teyit edilince eklenecek. The Process
+// Flutter ile geliştiriliyor (tek kod tabanı, iOS + Android) — bilinen tek
+// gerçek veri bu; eskiden burada yer alan Unreal Engine/Unity/AWS gibi
+// isimler gerçek stack'i yansıtmıyordu, kaldırıldı.
+export const TECH_STACK = ["Flutter"];

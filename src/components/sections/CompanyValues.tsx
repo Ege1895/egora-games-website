@@ -1,10 +1,14 @@
+"use client";
+
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
-import { VALUES } from "@/lib/mock-about";
+import { useLocale } from "@/lib/i18n/LocaleContext";
 
 export function CompanyValues() {
+  const { t } = useLocale();
+
   return (
     <section className="relative overflow-hidden border-t border-border bg-background-elevated py-24 sm:py-32">
       <div
@@ -14,14 +18,14 @@ export function CompanyValues() {
       <Container className="relative flex flex-col gap-16">
         <Reveal>
           <SectionHeading
-            eyebrow="Company Values"
-            title="What we believe in"
-            description="The principles that shape every decision we make as a studio."
+            eyebrow={t.companyValues.eyebrow}
+            title={t.companyValues.title}
+            description={t.companyValues.description}
           />
         </Reveal>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {VALUES.map((value, index) => (
+          {t.companyValues.values.map((value, index) => (
             <Reveal key={value.title} delay={index * 0.1}>
               <Card className="flex h-full flex-col gap-3 bg-background transition-transform hover:-translate-y-1">
                 <span className="text-3xl font-bold text-primary">

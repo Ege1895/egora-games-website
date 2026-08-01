@@ -1,20 +1,24 @@
+"use client";
+
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Reveal } from "@/components/ui/Reveal";
+import { useLocale } from "@/lib/i18n/LocaleContext";
 import { TECH_STACK } from "@/lib/mock-about";
 
 export function Technology() {
+  const { t } = useLocale();
+
   return (
     <section className="border-t border-border bg-background-elevated py-24 sm:py-32">
       <Container className="flex flex-col items-center gap-8 text-center">
         <Reveal className="flex flex-col items-center gap-4">
-          <Badge>Technology</Badge>
+          <Badge>{t.technology.badge}</Badge>
           <h2 className="max-w-2xl text-3xl font-bold text-foreground sm:text-4xl">
-            Built with tools that scale with our ambition
+            {t.technology.title}
           </h2>
           <p className="max-w-xl text-foreground-muted">
-            We pick proven, industry-standard tools so our team can focus on
-            craft instead of infrastructure.
+            {t.technology.description}
           </p>
         </Reveal>
 

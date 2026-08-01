@@ -1,13 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { Game } from "@/types";
 import { cn } from "@/lib/utils";
+import { useLocale } from "@/lib/i18n/LocaleContext";
+import type { Dictionary } from "@/lib/i18n/types";
 
-function storeSublabel(label: string) {
-  if (label.toLowerCase().includes("app store")) return "Download on the";
-  if (label.toLowerCase().includes("google play")) return "Get it on";
-  return "Available on";
+function storeSublabel(label: string, t: Dictionary) {
+  if (label.toLowerCase().includes("app store"))
+    return t.gameShowcase.storeSublabelAppStore;
+  if (label.toLowerCase().includes("google play"))
+    return t.gameShowcase.storeSublabelGooglePlay;
+  return t.gameShowcase.storeSublabelGeneric;
 }
 
 export function GameShowcaseRow({
@@ -17,6 +23,7 @@ export function GameShowcaseRow({
   game: Game;
   reverse?: boolean;
 }) {
+  const { locale, t } = useLocale();
   const thumbnails = game.screenshots.slice(0, 2);
   const isLive = game.storeLinks.some((link) => link.url);
 
@@ -30,7 +37,7 @@ export function GameShowcaseRow({
         >
           <Image
             src={game.bannerImage}
-            alt={`${game.title} key art görseli`}
+            alt={`${game.title} key art`}
             fill
             loading="lazy"
             sizes="(min-width: 1024px) 60vw, 100vw"
@@ -63,7 +70,7 @@ export function GameShowcaseRow({
               {isLive && (
                 <div
                   className="flex items-center gap-0.5"
-                  aria-label="Değerlendirme: 4.5 / 5 (TODO)"
+                  aria-label={t.gameShowcase.ratingSrLabel}
                 >
                   {Array.from({ length: 5 }).map((_, i) => (
                     <StarIcon
@@ -81,13 +88,13 @@ export function GameShowcaseRow({
             </div>
           </div>
 
-          <p className="text-sm text-white">{game.description}</p>
+          <p className="text-sm text-white">{game.description[locale]}</p>
 
           <Link
             href={`/games/${game.slug}`}
             className="text-sm font-semibold text-accent underline-offset-4 hover:underline"
           >
-            Read More
+            {t.gameShowcase.readMore}
           </Link>
         </div>
 
@@ -104,7 +111,7 @@ export function GameShowcaseRow({
               >
                 <Image
                   src={shot}
-                  alt={`${game.title} ekran görüntüsü`}
+                  alt={`${game.title} screenshot`}
                   fill
                   loading="lazy"
                   sizes="144px"
@@ -119,9 +126,7 @@ export function GameShowcaseRow({
         {game.storeLinks.length > 0 && (
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <span className="text-xs font-semibold uppercase tracking-wide text-foreground-muted">
-              Download
-              <br />
-              now at
+              {t.gameShowcase.downloadNowAt}
             </span>
             {game.storeLinks.map((link) =>
               link.url ? (
@@ -134,7 +139,7 @@ export function GameShowcaseRow({
                 >
                   <span className="flex flex-col leading-tight">
                     <span className="text-[10px] text-foreground-muted">
-                      {storeSublabel(link.label)}
+                      {storeSublabel(link.label, t)}
                     </span>
                     <span className="text-sm font-semibold">{link.label}</span>
                   </span>
@@ -142,11 +147,13 @@ export function GameShowcaseRow({
               ) : (
                 <span
                   key={link.label}
-                  aria-label={`${link.label}: Coming Soon`}
+                  aria-label={`${link.label}: ${t.gameShowcase.comingSoon}`}
                   className="flex items-center gap-2 rounded-xl border border-dashed border-border px-4 py-2 text-foreground-muted"
                 >
                   <span className="flex flex-col leading-tight">
-                    <span className="text-[10px]">Coming Soon</span>
+                    <span className="text-[10px]">
+                      {t.gameShowcase.comingSoon}
+                    </span>
                     <span className="text-sm font-semibold">{link.label}</span>
                   </span>
                 </span>

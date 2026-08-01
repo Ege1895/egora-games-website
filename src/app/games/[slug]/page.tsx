@@ -23,7 +23,7 @@ export async function generateMetadata({
 
   return buildMetadata({
     title: game.title,
-    description: game.description,
+    description: game.description.en,
     path: `/games/${game.slug}`,
   });
 }
@@ -44,8 +44,8 @@ export default async function GamePage({
     "@context": "https://schema.org",
     "@type": "VideoGame",
     name: game.title,
-    description: game.description,
-    genre: game.genre,
+    description: game.description.en,
+    genre: game.genre.en,
     url: `${SITE_URL}/games/${game.slug}`,
     image: `${SITE_URL}${game.coverImage}`,
     gamePlatform: game.platforms,
