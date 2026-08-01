@@ -2,14 +2,17 @@
 
 /*
  * Egora Games tema sistemi — tüm renkler CSS custom property üzerinden.
- * Marka renkleri "Cobalt Pulse" paleti olarak onaylandı (primary: mavi,
- * accent: mercan). --color-primary, kart/buton gibi dolu (solid) arka
- * planlarda beyaz metinle WCAG AA kontrastını (≥4.5:1) sağlamak için
- * onaylanan #3b82f6 tonundan bir kademe koyu seçildi; #3b82f6 hover
- * durumunda kullanılıyor. Component'lerde asla hardcoded hex
- * kullanılmamalı, her zaman aşağıdaki değişkenler (veya bunlara karşılık
- * gelen Tailwind utility'leri, örn. bg-background, text-foreground,
- * bg-primary, text-accent) üzerinden gidilmeli.
+ * --color-primary-hover (#00A9FF) resmi logodan (Desktop/Egora/egora.png)
+ * piksel bazında örneklenen GERÇEK marka mavisi — logo, ikonografi ve
+ * yüksek kontrast gereken metin/link kullanımlarında bu ton esastır.
+ * --color-primary, aynı tonun kart/buton gibi dolu (solid) arka planlarda
+ * beyaz metinle WCAG AA kontrastını (≥4.5:1) sağlayacak şekilde bir
+ * kademe koyultulmuş hali (#00A9FF salt renkte kontrast 2.6:1, yetersiz).
+ * Accent (mercan) logodan bağımsız, tamamlayıcı renk olarak korunuyor.
+ * Component'lerde asla hardcoded hex kullanılmamalı, her zaman aşağıdaki
+ * değişkenler (veya bunlara karşılık gelen Tailwind utility'leri, örn.
+ * bg-background, text-foreground, bg-primary, text-accent) üzerinden
+ * gidilmeli.
  */
 :root {
   --background: #0a0a0f;
@@ -17,9 +20,9 @@
   --foreground: #f5f5f7;
   --foreground-muted: #a1a1aa;
 
-  /* Egora Games marka rengi — "Cobalt Pulse" (onaylandı) */
-  --color-primary: #2563eb;
-  --color-primary-hover: #3b82f6;
+  /* Egora Games marka rengi — gerçek logodan örneklendi */
+  --color-primary: #0076b2;
+  --color-primary-hover: #00a9ff;
   --color-accent: #ff6b4a;
   --color-accent-hover: #ff8567;
 
