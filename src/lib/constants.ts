@@ -23,10 +23,9 @@ export const NAV_LINKS = [
 // TODO: Privacy Policy, Terms of Service sayfaları eklenince buraya geri eklenecek
 export const FOOTER_LINKS: readonly { label: string; href: string }[] = [];
 
-// TODO: şirket adresi belirlenince güncelle
 export const CONTACT_INFO = {
   email: "egoragames@gmail.com",
-  address: "TODO: şirket adresi",
+  address: "Eskişehir, Turkey",
 } as const;
 
 // Cloudflare Worker (workers/contact-form) → Brevo API üzerinden mail gönderir
