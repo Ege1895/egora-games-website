@@ -1,12 +1,13 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
-import { EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import { CheckCircleIcon, EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { GradientBackdrop } from "@/components/ui/GradientBackdrop";
-import { CONTACT_INFO, FORMSPREE_ENDPOINT, SOCIAL_LINKS } from "@/lib/constants";
+import { CONTACT_API_ENDPOINT, CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
 
 const SOCIAL_ITEMS = [
   { label: "Twitter", href: SOCIAL_LINKS.twitter },
@@ -15,7 +16,45 @@ const SOCIAL_ITEMS = [
   { label: "Discord", href: SOCIAL_LINKS.discord },
 ];
 
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
 export function ContactSection() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("submitting");
+    setErrorMessage(null);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch(CONTACT_API_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || "Mesaj gönderilemedi.");
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Mesaj gönderilemedi, lütfen tekrar deneyin."
+      );
+    }
+  }
+
   return (
     <section className="relative overflow-hidden py-20 sm:py-28">
       <GradientBackdrop />
@@ -81,75 +120,103 @@ export function ContactSection() {
           </motion.div>
         </div>
 
-        <motion.form
-          action={FORMSPREE_ENDPOINT}
-          method="POST"
+        <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-col gap-5 rounded-3xl border border-border bg-background-elevated p-8"
+          className="rounded-3xl border border-border bg-background-elevated p-8"
         >
-          {/* TODO: FORMSPREE_ENDPOINT (lib/constants.ts) gerçek form ID'siyle değiştirilecek */}
-          <div className="flex flex-col gap-2">
-            <label htmlFor="name" className="text-sm font-medium text-foreground">
-              Name
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none"
-              placeholder="Your name"
-            />
-          </div>
+          {status === "success" ? (
+            <div className="flex flex-col items-center gap-4 py-12 text-center">
+              <CheckCircleIcon aria-hidden className="h-12 w-12 text-primary" />
+              <h3 className="text-xl font-bold text-foreground">
+                Mesajınız gönderildi
+              </h3>
+              <p className="text-sm text-foreground-muted">
+                En kısa sürede size dönüş yapacağız.
+              </p>
+              <Button variant="secondary" onClick={() => setStatus("idle")}>
+                Yeni mesaj gönder
+              </Button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="name" className="text-sm font-medium text-foreground">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  disabled={status === "submitting"}
+                  className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
+                  placeholder="Your name"
+                />
+              </div>
 
-          <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-sm font-medium text-foreground">
-              Email
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none"
-              placeholder="you@example.com"
-            />
-          </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="email" className="text-sm font-medium text-foreground">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  disabled={status === "submitting"}
+                  className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
+                  placeholder="you@example.com"
+                />
+              </div>
 
-          <div className="flex flex-col gap-2">
-            <label htmlFor="subject" className="text-sm font-medium text-foreground">
-              Subject
-            </label>
-            <input
-              id="subject"
-              name="subject"
-              type="text"
-              required
-              className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none"
-              placeholder="What's this about?"
-            />
-          </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="subject" className="text-sm font-medium text-foreground">
+                  Subject
+                </label>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  required
+                  disabled={status === "submitting"}
+                  className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
+                  placeholder="What's this about?"
+                />
+              </div>
 
-          <div className="flex flex-col gap-2">
-            <label htmlFor="message" className="text-sm font-medium text-foreground">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              rows={5}
-              className="resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none"
-              placeholder="Tell us more..."
-            />
-          </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="message" className="text-sm font-medium text-foreground">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={5}
+                  disabled={status === "submitting"}
+                  className="resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
+                  placeholder="Tell us more..."
+                />
+              </div>
 
-          <Button type="submit" className="mt-2 w-full">
-            Send Message
-          </Button>
-        </motion.form>
+              {status === "error" && (
+                <p role="alert" className="text-sm text-danger">
+                  {errorMessage}
+                </p>
+              )}
+
+              <Button
+                type="submit"
+                disabled={status === "submitting"}
+                className="mt-2 w-full"
+              >
+                {status === "submitting" ? "Gönderiliyor..." : "Send Message"}
+              </Button>
+            </form>
+          )}
+        </motion.div>
       </Container>
     </section>
   );
