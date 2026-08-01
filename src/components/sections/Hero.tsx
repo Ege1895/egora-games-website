@@ -1,17 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PlayCircleIcon, StarIcon, UsersIcon, TrophyIcon } from "@heroicons/react/24/solid";
+import {
+  PlayCircleIcon,
+  StarIcon,
+  DevicePhoneMobileIcon,
+  CalendarIcon,
+} from "@heroicons/react/24/solid";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { GradientBackdrop } from "@/components/ui/GradientBackdrop";
 
-// TODO: gerçek stüdyo istatistikleriyle değiştirilecek
 const STATS = [
-  { icon: PlayCircleIcon, label: "Games shipped", value: "3+" },
-  { icon: UsersIcon, label: "Players reached", value: "TODO" },
-  { icon: TrophyIcon, label: "Awards & nominations", value: "TODO" },
+  { icon: PlayCircleIcon, label: "Games in development", value: "2" },
+  { icon: DevicePhoneMobileIcon, label: "Platforms", value: "iOS & Android" },
+  { icon: CalendarIcon, label: "Founded", value: "2026" },
 ];
 
 export function Hero() {
