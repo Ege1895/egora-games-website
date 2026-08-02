@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { GradientBackdrop } from "@/components/ui/GradientBackdrop";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 
@@ -37,7 +37,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge>{t.hero.badge}</Badge>
+            <Eyebrow>{t.hero.badge}</Eyebrow>
           </motion.div>
 
           <motion.h1

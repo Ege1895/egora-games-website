@@ -169,6 +169,22 @@ export const en: Dictionary = {
     description:
       "We pick proven, industry-standard tools so our team can focus on craft instead of infrastructure.",
   },
+  team: {
+    eyebrow: "Meet the Team",
+    title: "The two of us",
+    description:
+      "Egora Games is run by two co-founders wearing every hat the studio needs.",
+    members: [
+      {
+        name: "Ege Kaya",
+        role: "Co-Founder — Development & Publishing",
+      },
+      {
+        name: "Deniz Kaya",
+        role: "Co-Founder — Marketing & Content",
+      },
+    ],
+  },
   contact: {
     badge: "Contact",
     title: "Let's talk",

@@ -39,7 +39,7 @@ export function WhyEgora() {
             const Icon = ICONS[index];
             return (
               <Reveal key={reason.title} delay={index * 0.1}>
-                <Card className="group flex h-full flex-col gap-4 bg-background transition-transform hover:-translate-y-1">
+                <Card variant="flat" className="group gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
                     <Icon aria-hidden className="h-6 w-6" />
                   </div>

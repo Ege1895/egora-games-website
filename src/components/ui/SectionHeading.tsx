@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Eyebrow } from "./Eyebrow";
 
 export function SectionHeading({
   eyebrow,
@@ -23,12 +24,8 @@ export function SectionHeading({
         className
       )}
     >
-      {eyebrow && (
-        <span className="text-sm font-semibold uppercase tracking-widest text-accent">
-          {eyebrow}
-        </span>
-      )}
-      <Heading className="text-3xl font-bold text-foreground sm:text-4xl">
+      {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+      <Heading className="text-h1 font-semibold text-foreground">
         {title}
       </Heading>
       {description && (

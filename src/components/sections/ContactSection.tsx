@@ -4,8 +4,10 @@ import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { CheckCircleIcon, EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import { Container } from "@/components/ui/Container";
-import { Badge } from "@/components/ui/Badge";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Textarea } from "@/components/ui/Textarea";
 import { GradientBackdrop } from "@/components/ui/GradientBackdrop";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { CONTACT_API_ENDPOINT, CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
@@ -64,7 +66,7 @@ export function ContactSection() {
             transition={{ duration: 0.6 }}
             className="flex flex-col gap-4"
           >
-            <Badge>{t.contact.badge}</Badge>
+            <Eyebrow>{t.contact.badge}</Eyebrow>
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
               {t.contact.title}
             </h1>
@@ -138,65 +140,45 @@ export function ContactSection() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="text-sm font-medium text-foreground">
-                  {t.contact.formNameLabel}
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  disabled={status === "submitting"}
-                  className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
-                  placeholder={t.contact.formNamePlaceholder}
-                />
-              </div>
+              <Input
+                id="name"
+                name="name"
+                type="text"
+                required
+                disabled={status === "submitting"}
+                label={t.contact.formNameLabel}
+                placeholder={t.contact.formNamePlaceholder}
+              />
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-sm font-medium text-foreground">
-                  {t.contact.formEmailLabel}
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  disabled={status === "submitting"}
-                  className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
-                  placeholder={t.contact.formEmailPlaceholder}
-                />
-              </div>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                required
+                disabled={status === "submitting"}
+                label={t.contact.formEmailLabel}
+                placeholder={t.contact.formEmailPlaceholder}
+              />
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="subject" className="text-sm font-medium text-foreground">
-                  {t.contact.formSubjectLabel}
-                </label>
-                <input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  required
-                  disabled={status === "submitting"}
-                  className="rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
-                  placeholder={t.contact.formSubjectPlaceholder}
-                />
-              </div>
+              <Input
+                id="subject"
+                name="subject"
+                type="text"
+                required
+                disabled={status === "submitting"}
+                label={t.contact.formSubjectLabel}
+                placeholder={t.contact.formSubjectPlaceholder}
+              />
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-sm font-medium text-foreground">
-                  {t.contact.formMessageLabel}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  disabled={status === "submitting"}
-                  className="resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
-                  placeholder={t.contact.formMessagePlaceholder}
-                />
-              </div>
+              <Textarea
+                id="message"
+                name="message"
+                required
+                rows={5}
+                disabled={status === "submitting"}
+                label={t.contact.formMessageLabel}
+                placeholder={t.contact.formMessagePlaceholder}
+              />
 
               {status === "error" && (
                 <p role="alert" className="text-sm text-danger">

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { Badge } from "@/components/ui/Badge";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 
@@ -24,7 +24,7 @@ export function Vision() {
         </Reveal>
 
         <Reveal delay={0.15} className="flex flex-col gap-6">
-          <Badge>{t.vision.badge}</Badge>
+          <Eyebrow>{t.vision.badge}</Eyebrow>
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
             {t.vision.title}
           </h2>

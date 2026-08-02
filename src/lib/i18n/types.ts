@@ -105,6 +105,12 @@ export type Dictionary = {
     title: string;
     description: string;
   };
+  team: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    members: { name: string; role: string }[];
+  };
   contact: {
     badge: string;
     title: string;

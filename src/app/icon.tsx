@@ -4,7 +4,6 @@ export const dynamic = "force-static";
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
-// TODO: gerçek logo tasarımı hazır olunca bu placeholder ikonun yerini alacak
 export default function Icon() {
   return new ImageResponse(
     (
@@ -15,7 +14,7 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#6d5bff",
+          background: "#2563eb",
           borderRadius: 8,
           color: "#ffffff",
           fontSize: 20,

@@ -117,3 +117,7 @@ export const GAMES: Game[] = [
 export function getGameBySlug(slug: string) {
   return GAMES.find((game) => game.slug === slug);
 }
+
+export function getGameStatus(game: Game): "live" | "comingSoon" {
+  return game.storeLinks.some((link) => link.url) ? "live" : "comingSoon";
+}

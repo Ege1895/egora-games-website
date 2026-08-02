@@ -3,45 +3,128 @@
 /*
  * Egora Games tema sistemi — tüm renkler CSS custom property üzerinden.
  * Marka renkleri "Cobalt Pulse" paleti olarak onaylandı (primary: mavi,
- * accent: mercan). --color-primary, kart/buton gibi dolu (solid) arka
- * planlarda beyaz metinle WCAG AA kontrastını (≥4.5:1) sağlamak için
- * onaylanan #3b82f6 tonundan bir kademe koyu seçildi; #3b82f6 hover
- * durumunda kullanılıyor. Component'lerde asla hardcoded hex
- * kullanılmamalı, her zaman aşağıdaki değişkenler (veya bunlara karşılık
- * gelen Tailwind utility'leri, örn. bg-background, text-foreground,
- * bg-primary, text-accent) üzerinden gidilmeli.
+ * accent: mercan), artık dark + light iki tema olarak tanımlı. Component'lerde
+ * asla hardcoded hex kullanılmamalı, her zaman aşağıdaki değişkenler (veya
+ * bunlara karşılık gelen Tailwind utility'leri, örn. bg-background,
+ * text-foreground, bg-primary, text-accent-ink) üzerinden gidilmeli.
+ *
+ * İstisna: fotoğraf üstü scrim gradyanları (örn. PortraitCard) kasıtlı olarak
+ * token'a değil, hardcoded rgba(10,10,15,X)'e bağlı kalmalı — metnin her iki
+ * temada da fotoğraf üzerinde okunur (beyaz) kalması gerekiyor.
  */
 :root {
   --background: #0a0a0f;
   --background-elevated: #12121a;
+  --surface-hi: #191922;
   --foreground: #f5f5f7;
   --foreground-muted: #a1a1aa;
+  --text-dim: #71717a;
+  --text-on-accent: #0a0a0f;
 
   /* Egora Games marka rengi — "Cobalt Pulse" (onaylandı) */
   --color-primary: #2563eb;
   --color-primary-hover: #3b82f6;
   --color-accent: #ff6b4a;
   --color-accent-hover: #ff8567;
+  --primary-soft: rgba(37, 99, 235, 0.14);
+  --accent-soft: rgba(255, 107, 74, 0.13);
+  /* dark temada accent metin olarak da okunaklı, ink = accent */
+  --accent-ink: #ff6b4a;
+  /* Fotoğraf üstü koyu scrim her iki temada da hardcoded kalıyor, bu yüzden
+     scrim üstü mercan metin (örn. PortraitCard rolü) accent-ink'ten ayrı bir
+     token: dark'ta accent ile aynı, light'ta scrim üzerinde okunaklı kalan
+     daha açık bir ton. */
+  --accent-on-scrim: #ff6b4a;
 
   --border: #24242e;
+  --border-hi: #33333f;
   --success: #22c55e;
   --warning: #f59e0b;
   --danger: #ef4444;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 8px 24px -8px rgba(0, 0, 0, 0.7);
+  --ring: 0 0 0 3px rgba(37, 99, 235, 0.35);
+}
+
+:root[data-theme="light"] {
+  --background: #f7f7f9;
+  --background-elevated: #ffffff;
+  --surface-hi: #f1f1f5;
+  --foreground: #0f0f14;
+  --foreground-muted: #52525b;
+  --text-dim: #6e6e78;
+  --text-on-accent: #1c1005;
+
+  --color-primary-hover: #1d4ed8;
+  --color-accent-hover: #f2542f;
+  --primary-soft: rgba(37, 99, 235, 0.1);
+  --accent-soft: rgba(255, 107, 74, 0.14);
+  /* light temada mercan sadece dolgu rengi; metin/eyebrow için okunaklı ink tonu */
+  --accent-ink: #c2410c;
+  /* koyu scrim üzerinde (PortraitCard rolü) accent-ink çok koyu kalır, bu yüzden
+     scrim'e özel daha açık bir mercan tonu kullanılıyor */
+  --accent-on-scrim: #ffa085;
+
+  --border: #e4e4ea;
+  --border-hi: #d2d2dc;
+  --success: #15803d;
+  --warning: #b45309;
+  --danger: #dc2626;
+
+  --shadow-1: 0 1px 2px rgba(15, 15, 20, 0.08);
+  --shadow-2: 0 12px 28px -10px rgba(15, 15, 20, 0.18);
+  --ring: 0 0 0 3px rgba(37, 99, 235, 0.28);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-background-elevated: var(--background-elevated);
+  --color-surface-hi: var(--surface-hi);
   --color-foreground: var(--foreground);
   --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-dim: var(--text-dim);
+  --color-foreground-on-accent: var(--text-on-accent);
   --color-primary: var(--color-primary);
   --color-primary-hover: var(--color-primary-hover);
+  --color-primary-soft: var(--primary-soft);
   --color-accent: var(--color-accent);
   --color-accent-hover: var(--color-accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-on-scrim: var(--accent-on-scrim);
   --color-border: var(--border);
+  --color-border-hi: var(--border-hi);
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-danger: var(--danger);
+
+  --shadow-1: var(--shadow-1);
+  --shadow-2: var(--shadow-2);
+  --shadow-ring: var(--ring);
+
+  --radius-md: 10px;
+
+  --text-display: 56px;
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.03em;
+  --text-h1: 40px;
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.025em;
+  --text-h2: 30px;
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h3: 22px;
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.01em;
+  --text-lg: 18px;
+  --text-lg--line-height: 1.6;
+  --text-body: 16px;
+  --text-body--line-height: 1.65;
+  --text-sm: 14px;
+  --text-sm--line-height: 1.6;
+  --text-xs: 12px;
+  --text-xs--line-height: 1.4;
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -50,4 +133,6 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  transition: background-color 140ms var(--ease-standard, cubic-bezier(0.2, 0.7, 0.3, 1)),
+    color 140ms var(--ease-standard, cubic-bezier(0.2, 0.7, 0.3, 1));
 }

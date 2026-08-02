@@ -27,7 +27,7 @@ export function CompanyValues() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {t.companyValues.values.map((value, index) => (
             <Reveal key={value.title} delay={index * 0.1}>
-              <Card className="flex h-full flex-col gap-3 bg-background transition-transform hover:-translate-y-1">
+              <Card variant="flat" className="gap-3">
                 <span className="text-3xl font-bold text-primary">
                   {String(index + 1).padStart(2, "0")}
                 </span>

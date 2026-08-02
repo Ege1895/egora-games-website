@@ -25,7 +25,7 @@ export function Timeline() {
               <span className="absolute -left-[2.6rem] top-1 flex h-6 w-6 items-center justify-center rounded-full border-2 border-primary bg-background sm:-left-[3.6rem]">
                 <span className="h-2 w-2 rounded-full bg-primary" />
               </span>
-              <span className="text-sm font-semibold uppercase tracking-wide text-accent">
+              <span className="text-sm font-semibold uppercase tracking-wide text-accent-ink">
                 {item.year}
               </span>
               <h3 className="mt-1 text-xl font-bold text-foreground">

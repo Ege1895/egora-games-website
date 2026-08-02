@@ -7,14 +7,17 @@ import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { PlatformBadges } from "@/components/ui/PlatformBadge";
+import { StatusBadge } from "@/components/ui/StatusBadge";
 import { VideoEmbed } from "@/components/ui/VideoEmbed";
 import { Reveal } from "@/components/ui/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleContext";
+import { getGameStatus } from "@/lib/mock-games";
 import { Game } from "@/types";
 
 export function GameDetail({ game }: { game: Game }) {
   const { locale, t } = useLocale();
   const isLive = game.storeLinks.some((link) => link.url);
+  const status = getGameStatus(game);
 
   return (
     <main className="flex flex-1 flex-col">
@@ -32,7 +35,14 @@ export function GameDetail({ game }: { game: Game }) {
         </div>
 
         <Container className="relative -mt-24 flex flex-col gap-4 pb-12">
-          <Badge>{game.genre[locale]}</Badge>
+          <div className="flex flex-wrap items-center gap-3">
+            <Badge>{game.genre[locale]}</Badge>
+            {status === "comingSoon" && (
+              <StatusBadge status="comingSoon">
+                {t.gameShowcase.comingSoon}
+              </StatusBadge>
+            )}
+          </div>
           <h1 className="text-4xl font-bold text-foreground sm:text-5xl">
             {game.title}
           </h1>
@@ -69,7 +79,10 @@ export function GameDetail({ game }: { game: Game }) {
                     aria-label={`${link.label}: ${t.gameShowcase.comingSoon}`}
                     className="inline-flex items-center gap-2 rounded-full border border-dashed border-border px-6 py-3 text-sm font-semibold text-foreground-muted"
                   >
-                    {link.label} · {t.gameShowcase.comingSoon}
+                    {link.label} ·{" "}
+                    <StatusBadge status="comingSoon">
+                      {t.gameShowcase.comingSoon}
+                    </StatusBadge>
                   </span>
                 )
               )}

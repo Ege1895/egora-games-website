@@ -168,6 +168,22 @@ export const tr: Dictionary = {
     description:
       "Ekibimiz altyapı yerine zanaate odaklanabilsin diye kanıtlanmış, sektör standardı araçları tercih ediyoruz.",
   },
+  team: {
+    eyebrow: "Ekiple Tanışın",
+    title: "İkimiz",
+    description:
+      "Egora Games, stüdyonun ihtiyaç duyduğu her işi üstlenen iki kurucu ortak tarafından yürütülüyor.",
+    members: [
+      {
+        name: "Ege Kaya",
+        role: "Kurucu Ortak — Geliştirme & Yayınlama",
+      },
+      {
+        name: "Deniz Kaya",
+        role: "Kurucu Ortak — Pazarlama & İçerik",
+      },
+    ],
+  },
   contact: {
     badge: "İletişim",
     title: "Hadi konuşalım",

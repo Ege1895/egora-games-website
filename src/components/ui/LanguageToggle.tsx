@@ -1,41 +1,35 @@
 "use client";
 
 import { useLocale } from "@/lib/i18n/LocaleContext";
+import { usePrefersReducedMotion } from "@/lib/hooks/usePrefersReducedMotion";
 import { cn } from "@/lib/utils";
-
-const OPTIONS: { code: "en" | "tr"; label: string }[] = [
-  { code: "en", label: "EN" },
-  { code: "tr", label: "TR" },
-];
 
 export function LanguageToggle({ className }: { className?: string }) {
   const { locale, setLocale } = useLocale();
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const isTr = locale === "tr";
 
   return (
-    <div
-      role="group"
-      aria-label="Language"
+    <button
+      type="button"
+      role="switch"
+      aria-checked={isTr}
+      aria-label="Toggle language"
+      onClick={() => setLocale(isTr ? "en" : "tr")}
       className={cn(
-        "inline-flex items-center rounded-full border border-border bg-background-elevated p-1",
+        "relative inline-flex h-10 w-[68px] shrink-0 items-center rounded-full border border-border-hi bg-surface-hi p-1",
         className
       )}
     >
-      {OPTIONS.map((option) => (
-        <button
-          key={option.code}
-          type="button"
-          onClick={() => setLocale(option.code)}
-          aria-pressed={locale === option.code}
-          className={cn(
-            "rounded-full px-3 py-1.5 text-sm font-semibold transition-colors",
-            locale === option.code
-              ? "bg-primary text-white"
-              : "text-foreground-muted hover:text-foreground"
-          )}
-        >
-          {option.label}
-        </button>
-      ))}
-    </div>
+      <span
+        className={cn(
+          "flex h-8 w-8 items-center justify-center rounded-full bg-primary font-mono text-xs font-semibold text-white shadow-1",
+          !prefersReducedMotion && "transition-transform duration-200 ease-out",
+          isTr ? "translate-x-7" : "translate-x-0"
+        )}
+      >
+        {isTr ? "TR" : "EN"}
+      </span>
+    </button>
   );
 }

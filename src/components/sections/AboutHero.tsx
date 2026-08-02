@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { Badge } from "@/components/ui/Badge";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { GradientBackdrop } from "@/components/ui/GradientBackdrop";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 
@@ -20,7 +20,7 @@ export function AboutHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge>{t.aboutHero.badge}</Badge>
+            <Eyebrow>{t.aboutHero.badge}</Eyebrow>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}

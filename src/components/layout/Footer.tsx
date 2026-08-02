@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -62,7 +63,14 @@ export function Footer() {
 
       <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-4">
-          <span className="text-xl font-bold text-foreground">{SITE_NAME}</span>
+          <Image
+            src="/images/brand/logo.png"
+            alt={SITE_NAME}
+            width={200}
+            height={102}
+            loading="lazy"
+            className="h-16 w-auto rounded-lg"
+          />
           <p className="text-sm text-foreground-muted">{t.footer.tagline}</p>
         </div>
 

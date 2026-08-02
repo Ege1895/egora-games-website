@@ -3,6 +3,7 @@ import { AboutHero } from "@/components/sections/AboutHero";
 import { MissionVision } from "@/components/sections/MissionVision";
 import { CompanyValues } from "@/components/sections/CompanyValues";
 import { Timeline } from "@/components/sections/Timeline";
+import { Team } from "@/components/sections/Team";
 import { Technology } from "@/components/sections/Technology";
 import { buildMetadata } from "@/lib/seo";
 
@@ -20,6 +21,7 @@ export default function AboutPage() {
       <MissionVision />
       <CompanyValues />
       <Timeline />
+      <Team />
       <Technology />
     </main>
   );

@@ -4,7 +4,6 @@ export const dynamic = "force-static";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-// TODO: gerçek logo tasarımı hazır olunca bu placeholder ikonun yerini alacak
 export default function AppleIcon() {
   return new ImageResponse(
     (
@@ -15,7 +14,7 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#6d5bff",
+          background: "#2563eb",
           color: "#ffffff",
           fontSize: 96,
           fontWeight: 700,

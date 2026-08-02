@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Container } from "@/components/ui/Container";
 import { LanguageToggle } from "@/components/ui/LanguageToggle";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { SITE_NAME } from "@/lib/constants";
 
@@ -26,20 +28,23 @@ export function Navbar() {
           aria-label={t.nav.mainNav}
           className="flex h-20 items-center justify-between"
         >
-          <Link
-            href="/"
-            className="text-xl font-bold tracking-tight text-foreground"
-            onClick={() => setIsOpen(false)}
-          >
-            {SITE_NAME}
+          <Link href="/" onClick={() => setIsOpen(false)}>
+            <Image
+              src="/images/brand/logo.png"
+              alt={SITE_NAME}
+              width={200}
+              height={102}
+              priority
+              className="h-16 w-auto rounded-lg"
+            />
           </Link>
 
-          <ul className="hidden items-center gap-8 lg:flex">
+          <ul className="hidden items-center gap-10 lg:flex">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-foreground-muted transition-colors hover:text-foreground"
+                  className="text-base font-semibold text-foreground-muted transition-colors hover:text-foreground"
                 >
                   {link.label}
                 </Link>
@@ -47,8 +52,9 @@ export function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden lg:block">
+          <div className="hidden items-center gap-3 lg:flex">
             <LanguageToggle />
+            <ThemeToggle />
           </div>
 
           <button
@@ -75,13 +81,16 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-lg px-3 py-3 text-sm font-medium text-foreground-muted transition-colors hover:bg-background-elevated hover:text-foreground"
+                className="rounded-lg px-3 py-3 text-base font-semibold text-foreground-muted transition-colors hover:bg-background-elevated hover:text-foreground"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <LanguageToggle className="mt-2" />
+            <div className="mt-2 flex items-center gap-3">
+              <LanguageToggle />
+              <ThemeToggle />
+            </div>
           </Container>
         </div>
       )}

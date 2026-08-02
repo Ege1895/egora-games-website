@@ -1,7 +1,7 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
-import { Badge } from "@/components/ui/Badge";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { TECH_STACK } from "@/lib/mock-about";
@@ -13,7 +13,7 @@ export function Technology() {
     <section className="border-t border-border bg-background-elevated py-24 sm:py-32">
       <Container className="flex flex-col items-center gap-8 text-center">
         <Reveal className="flex flex-col items-center gap-4">
-          <Badge>{t.technology.badge}</Badge>
+          <Eyebrow>{t.technology.badge}</Eyebrow>
           <h2 className="max-w-2xl text-3xl font-bold text-foreground sm:text-4xl">
             {t.technology.title}
           </h2>

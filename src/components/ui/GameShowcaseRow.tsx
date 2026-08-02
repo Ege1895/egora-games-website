@@ -6,6 +6,8 @@ import { StarIcon } from "@heroicons/react/24/solid";
 import { Game } from "@/types";
 import { cn } from "@/lib/utils";
 import { useLocale } from "@/lib/i18n/LocaleContext";
+import { getGameStatus } from "@/lib/mock-games";
+import { StatusBadge } from "@/components/ui/StatusBadge";
 import type { Dictionary } from "@/lib/i18n/types";
 
 function storeSublabel(label: string, t: Dictionary) {
@@ -25,7 +27,8 @@ export function GameShowcaseRow({
 }) {
   const { locale, t } = useLocale();
   const thumbnails = game.screenshots.slice(0, 2);
-  const isLive = game.storeLinks.some((link) => link.url);
+  const status = getGameStatus(game);
+  const isLive = status === "live";
 
   return (
     <div className={cn("relative", reverse && "lg:flex lg:justify-end")}>
@@ -44,6 +47,15 @@ export function GameShowcaseRow({
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+          {!isLive && (
+            <StatusBadge
+              status="comingSoon"
+              variant="glass"
+              className="absolute left-4 top-4"
+            >
+              {t.gameShowcase.comingSoon}
+            </StatusBadge>
+          )}
           <span className="absolute bottom-6 left-6 text-3xl font-extrabold uppercase tracking-wide text-foreground drop-shadow-lg sm:text-4xl">
             {game.title}
           </span>
@@ -78,7 +90,7 @@ export function GameShowcaseRow({
                       aria-hidden
                       className={cn(
                         "h-3.5 w-3.5",
-                        i < 4 ? "text-accent" : "text-white/30"
+                        i < 4 ? "text-accent-on-scrim" : "text-white/30"
                       )}
                     />
                   ))}
@@ -92,7 +104,7 @@ export function GameShowcaseRow({
 
           <Link
             href={`/games/${game.slug}`}
-            className="text-sm font-semibold text-accent underline-offset-4 hover:underline"
+            className="text-sm font-semibold text-accent-on-scrim underline-offset-4 hover:underline"
           >
             {t.gameShowcase.readMore}
           </Link>
