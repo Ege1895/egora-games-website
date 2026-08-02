@@ -27,9 +27,9 @@ export const en: Dictionary = {
   },
   hero: {
     badge: "Independent Game Studio",
-    headline: "We craft worlds players remember",
+    headline: "We craft small games that last",
     description:
-      "Egora Games is an independent studio building premium, story-driven mobile games.",
+      "Egora Games is an independent studio building small, polished mobile games designed to be played for years.",
     exploreGames: "Explore Our Games",
     aboutStudio: "About the Studio",
     statGamesLabel: "Games in development",
@@ -41,14 +41,14 @@ export const en: Dictionary = {
     eyebrow: "Our Games",
     title: "Featured Games",
     description:
-      "A selection of the worlds we're currently building and shipping.",
+      "A selection of the games we're currently building and shipping.",
     viewAll: "View All Games",
   },
   gamesPage: {
     eyebrow: "Our Games",
     title: "All Games",
     description:
-      "Every world we're currently building, from early prototypes to shipped titles.",
+      "Every game we're currently building, from early prototypes to shipped titles.",
   },
   gameShowcase: {
     readMore: "Read More",
@@ -91,7 +91,7 @@ export const en: Dictionary = {
     badge: "Our Vision",
     title: "Building the next generation of memorable games",
     description:
-      "We believe great games come from small, empowered teams who care deeply about craft, story, and player experience. Our goal is to build a studio that lasts for decades, not just ship a single hit.",
+      "We believe great games come from small, empowered teams who care deeply about craft and player experience. Our goal is to build a studio that lasts for decades, not just ship a single hit.",
   },
   gameDetail: {
     aboutGame: "About the Game",
@@ -108,10 +108,10 @@ export const en: Dictionary = {
   missionVision: {
     missionTitle: "Our Mission",
     missionText:
-      "To build premium, story-driven games that respect players' time and trust.",
+      "To build small, polished games that respect players' time and trust.",
     visionTitle: "Our Vision",
     visionText:
-      "To become a studio known for consistently shipping worlds players remember for decades.",
+      "To become a studio known for shipping small games that stay fun for years.",
   },
   companyValues: {
     eyebrow: "Company Values",
