@@ -7,16 +7,24 @@ function detectPlatform(label: string): StorePlatform {
   return label.toLowerCase().includes("google") ? "google-play" : "app-store";
 }
 
-const BADGE_SRC: Record<StorePlatform, { download: string; comingSoon: string }> = {
+// Her PNG farklı doğal genişliğe sahip (metne göre) ama hepsi aynı yüksekliğe
+// (240px) kırpılıp normalize edildi — bu yüzden aspect ratio görsel başına
+// ayrı tanımlanıyor, className'deki sabit yükseklik hepsini aynı boyda gösteriyor.
+const BADGE_SRC: Record<
+  StorePlatform,
+  { download: { src: string; width: number }; comingSoon: { src: string; width: number } }
+> = {
   "app-store": {
-    download: "/images/store-badges/app-store-download.png",
-    comingSoon: "/images/store-badges/app-store-coming-soon.png",
+    download: { src: "/images/store-badges/app-store-download.png", width: 689 },
+    comingSoon: { src: "/images/store-badges/app-store-coming-soon.png", width: 651 },
   },
   "google-play": {
-    download: "/images/store-badges/google-play-download.png",
-    comingSoon: "/images/store-badges/google-play-coming-soon.png",
+    download: { src: "/images/store-badges/google-play-download.png", width: 666 },
+    comingSoon: { src: "/images/store-badges/google-play-coming-soon.png", width: 616 },
   },
 };
+
+const BADGE_HEIGHT = 240;
 
 export function StoreBadge({
   label,
@@ -30,17 +38,17 @@ export function StoreBadge({
   className?: string;
 }) {
   const platform = detectPlatform(label);
-  const src = url ? BADGE_SRC[platform].download : BADGE_SRC[platform].comingSoon;
+  const variant = url ? BADGE_SRC[platform].download : BADGE_SRC[platform].comingSoon;
   const alt = url ? label : `${label}: ${comingSoonLabel}`;
 
   const badge = (
     <Image
-      src={src}
+      src={variant.src}
       alt={alt}
-      width={480}
-      height={320}
+      width={variant.width}
+      height={BADGE_HEIGHT}
       loading="lazy"
-      className="h-20 w-auto"
+      className="h-24 w-auto"
     />
   );
 
