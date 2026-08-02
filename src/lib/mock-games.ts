@@ -69,10 +69,14 @@ export const GAMES: Game[] = [
       en: "The Process is an idle simulation where you connect production stations with pipes on a steampunk factory board to build production chains. Grow your output, upgrade your stations, unlock new station types — and once you hit a certain threshold, 'reboot' to earn a permanent multiplier and grow even faster next run. The game is deliberately balanced at 60% idle / 40% active: you don't have to stay glued to the screen, but your taps aren't wasted either. A game that's there when you need to tap, and leaves you alone when you don't.",
       tr: "The Process, steampunk bir fabrika panosunda üretim istasyonlarını boru hatlarıyla birbirine bağlayıp üretim zincirleri kurduğun bir idle simülasyon. Üretimini büyüt, istasyonlarını yükselt, yeni istasyon tiplerinin kilidini aç — ve belirli bir eşiğe ulaştığında 'reboot' yaparak kalıcı bir çarpan kazan, bir sonraki turda çok daha hızlı büyü. Oyun bilinçli olarak %60 idle / %40 aktif dengesinde tasarlandı: ekrana kilitlenmene gerek yok, ama dokunuşların da boşa gitmiyor. Sabırlı büyümeyi ödüllendiren, dokunman gerektiğinde orada olan ama gerekmediğinde seni rahat bırakan bir oyun.",
     },
-    // TODO: gerçek ekran görüntüleri/key art eklenince değiştirilecek — kullanıcıdan hangi görsellerin kullanılabileceği soruldu
-    coverImage: "/images/games/the-process/cover.webp",
-    bannerImage: "/images/games/the-process/banner.webp",
-    screenshots: { en: [], tr: [] },
+    // Görseller the_process reposundan alındı: icon = store_assets/play_icon_512.png,
+    // ekran görüntüleri = Store Görselleri/IOS/Iphone (EN/TR, sahneye göre eşleştirildi).
+    coverImage: "/images/games/the-process/icon.png",
+    bannerImage: "/images/games/the-process/banner.jpg",
+    screenshots: {
+      en: [1, 2, 3, 4, 5, 6, 7].map((i) => `/images/games/the-process/screenshots/en/${i}.webp`),
+      tr: [1, 2, 3, 4, 5, 6, 7].map((i) => `/images/games/the-process/screenshots/tr/${i}.webp`),
+    },
     genre: { en: "Idle Simulation", tr: "Idle Simülasyon" },
     platforms: ["Mobile"],
     features: [
