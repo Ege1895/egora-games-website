@@ -12,13 +12,15 @@ export const GAMES: Game[] = [
       en: "Nublox adds a fresh twist to the classic block-blast formula: when a row or column fills up, the blocks don't clear themselves. Once Blast Mode kicks in, you have to manually clear the filled blocks within a short time limit — equal parts strategy and reflex. Some blocks become 'hardened' and need to be cleared twice, and the grid grows from 4x4 to 8x8 as you progress. Free to download.",
       tr: "Nublox, klasik blok bulmaca (block blast) formülüne özgün bir mekanik ekliyor: satır ya da sütun dolduğunda bloklar kendiliğinden patlamıyor. Blast Mode devreye girdiğinde, kısa bir süre içinde dolu blokları elinle patlatman gerekiyor — hem strateji hem refleks bir arada. Bazı bloklar iki kez patlatılması gereken 'katılaşmış' bloklara dönüşüyor, ızgara da ilerledikçe 4x4'ten 8x8'e büyüyor. Ücretsiz indirilebilir.",
     },
-    // TODO: gerçek ekran görüntüleri/key art eklenince değiştirilecek
-    coverImage: "/images/games/nublox/cover.webp",
+    // Görseller nublox reposundan alındı: icon = assets/icon/app_icon.png,
+    // banner = store screenshot'larından üretilen key art kompozisyonu.
+    coverImage: "/images/games/nublox/icon.png",
     bannerImage: "/images/games/nublox/banner.webp",
     screenshots: [
       "/images/games/nublox/screenshot-1.webp",
       "/images/games/nublox/screenshot-2.webp",
       "/images/games/nublox/screenshot-3.webp",
+      "/images/games/nublox/screenshot-4.webp",
     ],
     genre: { en: "Block Puzzle", tr: "Blok Bulmaca" },
     platforms: ["Mobile"],

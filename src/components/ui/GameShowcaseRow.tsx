@@ -26,7 +26,6 @@ export function GameShowcaseRow({
   reverse?: boolean;
 }) {
   const { locale, t } = useLocale();
-  const thumbnails = game.screenshots.slice(0, 2);
   const status = getGameStatus(game);
   const isLive = status === "live";
 
@@ -109,30 +108,6 @@ export function GameShowcaseRow({
             {t.gameShowcase.readMore}
           </Link>
         </div>
-
-        {/* Ekran görüntüsü thumbnail'ları: görselin sağ alt köşesine taşan */}
-        {thumbnails.length > 0 && (
-          <div className="mt-4 flex justify-end gap-3 pr-2 lg:absolute lg:bottom-4 lg:right-4 lg:mt-0">
-            {thumbnails.map((shot, i) => (
-              <div
-                key={shot}
-                className={cn(
-                  "relative h-20 w-28 overflow-hidden rounded-xl border border-border shadow-lg sm:h-24 sm:w-36",
-                  i === 1 && "hidden sm:block"
-                )}
-              >
-                <Image
-                  src={shot}
-                  alt={`${game.title} screenshot`}
-                  fill
-                  loading="lazy"
-                  sizes="144px"
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        )}
 
         {/* Mağaza linkleri — canlı olan tıklanabilir, olmayan "Coming Soon" olarak gösterilir */}
         {game.storeLinks.length > 0 && (
