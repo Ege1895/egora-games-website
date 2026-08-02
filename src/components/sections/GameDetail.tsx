@@ -5,10 +5,10 @@ import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
 import { PlatformBadges } from "@/components/ui/PlatformBadge";
 import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { StatusBadge } from "@/components/ui/StatusBadge";
+import { StoreBadge } from "@/components/ui/StoreBadge";
 import { VideoEmbed } from "@/components/ui/VideoEmbed";
 import { Reveal } from "@/components/ui/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleContext";
@@ -70,24 +70,14 @@ export function GameDetail({ game }: { game: Game }) {
           <PlatformBadges platforms={game.platforms} />
           {game.storeLinks.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-4">
-              {game.storeLinks.map((link) =>
-                link.url ? (
-                  <Button key={link.label} href={link.url} variant="primary">
-                    {link.label}
-                  </Button>
-                ) : (
-                  <span
-                    key={link.label}
-                    aria-label={`${link.label}: ${t.gameShowcase.comingSoon}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-dashed border-border px-6 py-3 text-sm font-semibold text-foreground-muted"
-                  >
-                    {link.label} ·{" "}
-                    <StatusBadge status="comingSoon">
-                      {t.gameShowcase.comingSoon}
-                    </StatusBadge>
-                  </span>
-                )
-              )}
+              {game.storeLinks.map((link) => (
+                <StoreBadge
+                  key={link.label}
+                  label={link.label}
+                  url={link.url}
+                  comingSoonLabel={t.gameShowcase.comingSoon}
+                />
+              ))}
             </div>
           )}
         </Container>

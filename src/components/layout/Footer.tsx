@@ -69,7 +69,7 @@ export function Footer() {
             width={200}
             height={102}
             loading="lazy"
-            className="h-16 w-auto rounded-lg"
+            className="h-16 w-auto self-start rounded-lg"
           />
           <p className="text-sm text-foreground-muted">{t.footer.tagline}</p>
         </div>
