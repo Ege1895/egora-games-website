@@ -27,9 +27,8 @@ export const en: Dictionary = {
   },
   hero: {
     badge: "Independent Game Studio",
-    headline: "We craft small games that last",
-    description:
-      "Egora Games is an independent studio building small, polished mobile games designed to be played for years.",
+    headline: "We bring together clean design, smooth gameplay, and long-lasting fun in every game we make",
+    description: "We develop a small number of mobile games, each built to a high standard.",
     exploreGames: "Explore Our Games",
     aboutStudio: "About the Studio",
     statGamesLabel: "Games in development",

@@ -27,9 +27,8 @@ export const tr: Dictionary = {
   },
   hero: {
     badge: "Bağımsız Oyun Stüdyosu",
-    headline: "Küçük ama ölümsüz oyunlar yaratıyoruz",
-    description:
-      "Egora Games, mobilde küçük ama özenle cilalanmış, yıllarca oynanacak oyunlar geliştiren bağımsız bir stüdyodur.",
+    headline: "Her oyunda sade tasarım, akıcı oynanış ve uzun ömürlü eğlenceyi bir araya getiriyoruz",
+    description: "Az sayıda ama yüksek kalitede mobil oyunlar geliştiriyoruz.",
     exploreGames: "Oyunlarımızı Keşfedin",
     aboutStudio: "Stüdyo Hakkında",
     statGamesLabel: "Geliştirilen Oyun",
