@@ -15,7 +15,7 @@ export const GAMES: Game[] = [
     // Görseller nublox reposundan alındı: icon = assets/icon/app_icon.png,
     // banner = store screenshot'larından üretilen key art kompozisyonu.
     coverImage: "/images/games/nublox/icon.png",
-    bannerImage: "/images/games/nublox/banner.webp",
+    bannerImage: "/images/games/nublox/banner.jpg",
     screenshots: {
       en: [1, 2, 3, 4, 5, 6].map((i) => `/images/games/nublox/screenshots/en/${i}.webp`),
       tr: [1, 2, 3, 4, 5, 6].map((i) => `/images/games/nublox/screenshots/tr/${i}.webp`),
