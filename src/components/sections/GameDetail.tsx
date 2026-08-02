@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { PlatformBadges } from "@/components/ui/PlatformBadge";
+import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { VideoEmbed } from "@/components/ui/VideoEmbed";
 import { Reveal } from "@/components/ui/Reveal";
@@ -18,6 +19,7 @@ export function GameDetail({ game }: { game: Game }) {
   const { locale, t } = useLocale();
   const isLive = game.storeLinks.some((link) => link.url);
   const status = getGameStatus(game);
+  const screenshots = game.screenshots[locale];
 
   return (
     <main className="flex flex-1 flex-col">
@@ -132,27 +134,19 @@ export function GameDetail({ game }: { game: Game }) {
         </section>
       )}
 
-      {game.screenshots.length > 0 && (
+      {screenshots.length > 0 && (
         <section className="border-t border-border py-16 sm:py-24">
           <Container className="flex flex-col gap-6">
             <h2 className="text-2xl font-bold text-foreground">
               {t.gameDetail.screenshots}
             </h2>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {game.screenshots.map((screenshot) => (
-                <div
+            <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
+              {screenshots.map((screenshot, i) => (
+                <PhoneFrame
                   key={screenshot}
-                  className="relative aspect-video overflow-hidden rounded-xl border border-border bg-background-elevated"
-                >
-                  <Image
-                    src={screenshot}
-                    alt={`${game.title} screenshot`}
-                    fill
-                    loading="lazy"
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
+                  src={screenshot}
+                  alt={`${game.title} screenshot ${i + 1}`}
+                />
               ))}
             </div>
           </Container>

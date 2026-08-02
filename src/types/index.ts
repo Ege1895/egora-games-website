@@ -9,7 +9,9 @@ export type Game = {
   description: LocalizedText;
   coverImage: string;
   bannerImage: string;
-  screenshots: string[];
+  // Mağaza ekran görüntüleri dile göre değişir (TR arayüz metni farklı) —
+  // her locale kendi ekran görüntü setini tutar.
+  screenshots: { en: string[]; tr: string[] };
   trailerUrl?: string;
   genre: LocalizedText;
   platforms: Platform[];

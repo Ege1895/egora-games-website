@@ -16,12 +16,10 @@ export const GAMES: Game[] = [
     // banner = store screenshot'larından üretilen key art kompozisyonu.
     coverImage: "/images/games/nublox/icon.png",
     bannerImage: "/images/games/nublox/banner.webp",
-    screenshots: [
-      "/images/games/nublox/screenshot-1.webp",
-      "/images/games/nublox/screenshot-2.webp",
-      "/images/games/nublox/screenshot-3.webp",
-      "/images/games/nublox/screenshot-4.webp",
-    ],
+    screenshots: {
+      en: [1, 2, 3, 4, 5, 6].map((i) => `/images/games/nublox/screenshots/en/${i}.webp`),
+      tr: [1, 2, 3, 4, 5, 6].map((i) => `/images/games/nublox/screenshots/tr/${i}.webp`),
+    },
     genre: { en: "Block Puzzle", tr: "Blok Bulmaca" },
     platforms: ["Mobile"],
     features: [
@@ -74,7 +72,7 @@ export const GAMES: Game[] = [
     // TODO: gerçek ekran görüntüleri/key art eklenince değiştirilecek — kullanıcıdan hangi görsellerin kullanılabileceği soruldu
     coverImage: "/images/games/the-process/cover.webp",
     bannerImage: "/images/games/the-process/banner.webp",
-    screenshots: [],
+    screenshots: { en: [], tr: [] },
     genre: { en: "Idle Simulation", tr: "Idle Simülasyon" },
     platforms: ["Mobile"],
     features: [
