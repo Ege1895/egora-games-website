@@ -26,8 +26,6 @@ export function PhoneFrame({
           sizes="280px"
           className="object-cover"
         />
-        {/* Dynamic Island */}
-        <div className="absolute left-1/2 top-2.5 h-6 w-24 -translate-x-1/2 rounded-full bg-black" />
       </div>
     </div>
   );
