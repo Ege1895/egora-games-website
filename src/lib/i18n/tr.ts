@@ -27,9 +27,8 @@ export const tr: Dictionary = {
   },
   hero: {
     badge: "Bağımsız Oyun Stüdyosu",
-    headline: "Oyuncuların unutamayacağı dünyalar yaratıyoruz",
-    description:
-      "Egora Games, mobilde premium ve hikaye odaklı oyunlar geliştiren bağımsız bir stüdyodur.",
+    headline: "Her oyunda sade tasarım, akıcı oynanış ve uzun ömürlü eğlenceyi bir araya getiriyoruz",
+    description: "Az sayıda ama yüksek kalitede mobil oyunlar geliştiriyoruz.",
     exploreGames: "Oyunlarımızı Keşfedin",
     aboutStudio: "Stüdyo Hakkında",
     statGamesLabel: "Geliştirilen Oyun",
@@ -40,14 +39,14 @@ export const tr: Dictionary = {
   featuredGames: {
     eyebrow: "Oyunlarımız",
     title: "Öne Çıkan Oyunlar",
-    description: "Şu anda geliştirdiğimiz ve yayınladığımız dünyalardan bir seçki.",
+    description: "Şu anda geliştirdiğimiz ve yayınladığımız oyunlardan bir seçki.",
     viewAll: "Tüm Oyunları Gör",
   },
   gamesPage: {
     eyebrow: "Oyunlarımız",
     title: "Tüm Oyunlar",
     description:
-      "Erken prototiplerden yayınlanmış oyunlara, geliştirdiğimiz tüm dünyalar.",
+      "Erken prototiplerden yayınlanmış oyunlara, geliştirdiğimiz tüm oyunlar.",
   },
   gameShowcase: {
     readMore: "Devamını Oku",
@@ -86,12 +85,6 @@ export const tr: Dictionary = {
       },
     ],
   },
-  vision: {
-    badge: "Vizyonumuz",
-    title: "Akılda kalıcı oyunların yeni neslini inşa ediyoruz",
-    description:
-      "Harika oyunların, zanaate, hikayeye ve oyuncu deneyimine derinden önem veren küçük ve yetkin ekiplerden doğduğuna inanıyoruz. Amacımız tek bir hit oyun çıkarmak değil, onlarca yıl sürecek bir stüdyo inşa etmek.",
-  },
   gameDetail: {
     aboutGame: "Oyun Hakkında",
     features: "Özellikler",
@@ -107,10 +100,10 @@ export const tr: Dictionary = {
   missionVision: {
     missionTitle: "Misyonumuz",
     missionText:
-      "Oyuncuların zamanına ve güvenine saygı duyan, premium ve hikaye odaklı oyunlar geliştirmek.",
+      "Küçük ama özenle cilalanmış, oyuncuların zamanına ve güvenine saygı duyan oyunlar geliştirmek.",
     visionTitle: "Vizyonumuz",
     visionText:
-      "Oyuncuların onlarca yıl hatırlayacağı dünyaları istikrarlı bir şekilde yayınlayan bir stüdyo olarak tanınmak.",
+      "Küçük ama yıllarca keyifle oynanacak oyunlar yayınlayan bir stüdyo olarak tanınmak.",
   },
   companyValues: {
     eyebrow: "Şirket Değerlerimiz",

@@ -15,7 +15,7 @@ export function PortraitCard({
   return (
     <div
       className={cn(
-        "group relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-border transition-colors hover:border-primary sm:aspect-[4/5]",
+        "group relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-border transition-colors sm:aspect-[4/5]",
         className
       )}
     >
@@ -33,7 +33,7 @@ export function PortraitCard({
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(to top, rgba(10,10,15,0.96) 0%, rgba(10,10,15,0.82) 55%, rgba(10,10,15,0) 100%)",
+            "linear-gradient(to top, rgba(10,10,15,0.75) 0%, rgba(10,10,15,0.45) 55%, rgba(10,10,15,0) 100%)",
         }}
       />
       <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1.5 p-6 sm:p-8">

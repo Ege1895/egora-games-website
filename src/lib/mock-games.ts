@@ -12,14 +12,14 @@ export const GAMES: Game[] = [
       en: "Nublox adds a fresh twist to the classic block-blast formula: when a row or column fills up, the blocks don't clear themselves. Once Blast Mode kicks in, you have to manually clear the filled blocks within a short time limit — equal parts strategy and reflex. Some blocks become 'hardened' and need to be cleared twice, and the grid grows from 4x4 to 8x8 as you progress. Free to download.",
       tr: "Nublox, klasik blok bulmaca (block blast) formülüne özgün bir mekanik ekliyor: satır ya da sütun dolduğunda bloklar kendiliğinden patlamıyor. Blast Mode devreye girdiğinde, kısa bir süre içinde dolu blokları elinle patlatman gerekiyor — hem strateji hem refleks bir arada. Bazı bloklar iki kez patlatılması gereken 'katılaşmış' bloklara dönüşüyor, ızgara da ilerledikçe 4x4'ten 8x8'e büyüyor. Ücretsiz indirilebilir.",
     },
-    // TODO: gerçek ekran görüntüleri/key art eklenince değiştirilecek
-    coverImage: "/images/games/nublox/cover.webp",
-    bannerImage: "/images/games/nublox/banner.webp",
-    screenshots: [
-      "/images/games/nublox/screenshot-1.webp",
-      "/images/games/nublox/screenshot-2.webp",
-      "/images/games/nublox/screenshot-3.webp",
-    ],
+    // Görseller nublox reposundan alındı: icon = assets/icon/app_icon.png,
+    // banner = store screenshot'larından üretilen key art kompozisyonu.
+    coverImage: "/images/games/nublox/icon.png",
+    bannerImage: "/images/games/nublox/banner.jpg",
+    screenshots: {
+      en: [1, 2, 3, 4, 5, 6].map((i) => `/images/games/nublox/screenshots/en/${i}.webp`),
+      tr: [1, 2, 3, 4, 5, 6].map((i) => `/images/games/nublox/screenshots/tr/${i}.webp`),
+    },
     genre: { en: "Block Puzzle", tr: "Blok Bulmaca" },
     platforms: ["Mobile"],
     features: [
@@ -69,10 +69,14 @@ export const GAMES: Game[] = [
       en: "The Process is an idle simulation where you connect production stations with pipes on a steampunk factory board to build production chains. Grow your output, upgrade your stations, unlock new station types — and once you hit a certain threshold, 'reboot' to earn a permanent multiplier and grow even faster next run. The game is deliberately balanced at 60% idle / 40% active: you don't have to stay glued to the screen, but your taps aren't wasted either. A game that's there when you need to tap, and leaves you alone when you don't.",
       tr: "The Process, steampunk bir fabrika panosunda üretim istasyonlarını boru hatlarıyla birbirine bağlayıp üretim zincirleri kurduğun bir idle simülasyon. Üretimini büyüt, istasyonlarını yükselt, yeni istasyon tiplerinin kilidini aç — ve belirli bir eşiğe ulaştığında 'reboot' yaparak kalıcı bir çarpan kazan, bir sonraki turda çok daha hızlı büyü. Oyun bilinçli olarak %60 idle / %40 aktif dengesinde tasarlandı: ekrana kilitlenmene gerek yok, ama dokunuşların da boşa gitmiyor. Sabırlı büyümeyi ödüllendiren, dokunman gerektiğinde orada olan ama gerekmediğinde seni rahat bırakan bir oyun.",
     },
-    // TODO: gerçek ekran görüntüleri/key art eklenince değiştirilecek — kullanıcıdan hangi görsellerin kullanılabileceği soruldu
-    coverImage: "/images/games/the-process/cover.webp",
-    bannerImage: "/images/games/the-process/banner.webp",
-    screenshots: [],
+    // Görseller the_process reposundan alındı: icon = store_assets/play_icon_512.png,
+    // ekran görüntüleri = Store Görselleri/IOS/Iphone (EN/TR, sahneye göre eşleştirildi).
+    coverImage: "/images/games/the-process/icon.png",
+    bannerImage: "/images/games/the-process/banner.jpg",
+    screenshots: {
+      en: [1, 2, 3, 4, 5, 6, 7].map((i) => `/images/games/the-process/screenshots/en/${i}.webp`),
+      tr: [1, 2, 3, 4, 5, 6, 7].map((i) => `/images/games/the-process/screenshots/tr/${i}.webp`),
+    },
     genre: { en: "Idle Simulation", tr: "Idle Simülasyon" },
     platforms: ["Mobile"],
     features: [

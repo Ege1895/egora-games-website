@@ -8,15 +8,7 @@ import { cn } from "@/lib/utils";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { getGameStatus } from "@/lib/mock-games";
 import { StatusBadge } from "@/components/ui/StatusBadge";
-import type { Dictionary } from "@/lib/i18n/types";
-
-function storeSublabel(label: string, t: Dictionary) {
-  if (label.toLowerCase().includes("app store"))
-    return t.gameShowcase.storeSublabelAppStore;
-  if (label.toLowerCase().includes("google play"))
-    return t.gameShowcase.storeSublabelGooglePlay;
-  return t.gameShowcase.storeSublabelGeneric;
-}
+import { StoreBadge } from "@/components/ui/StoreBadge";
 
 export function GameShowcaseRow({
   game,
@@ -26,7 +18,6 @@ export function GameShowcaseRow({
   reverse?: boolean;
 }) {
   const { locale, t } = useLocale();
-  const thumbnails = game.screenshots.slice(0, 2);
   const status = getGameStatus(game);
   const isLive = status === "live";
 
@@ -110,67 +101,20 @@ export function GameShowcaseRow({
           </Link>
         </div>
 
-        {/* Ekran görüntüsü thumbnail'ları: görselin sağ alt köşesine taşan */}
-        {thumbnails.length > 0 && (
-          <div className="mt-4 flex justify-end gap-3 pr-2 lg:absolute lg:bottom-4 lg:right-4 lg:mt-0">
-            {thumbnails.map((shot, i) => (
-              <div
-                key={shot}
-                className={cn(
-                  "relative h-20 w-28 overflow-hidden rounded-xl border border-border shadow-lg sm:h-24 sm:w-36",
-                  i === 1 && "hidden sm:block"
-                )}
-              >
-                <Image
-                  src={shot}
-                  alt={`${game.title} screenshot`}
-                  fill
-                  loading="lazy"
-                  sizes="144px"
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Mağaza linkleri — canlı olan tıklanabilir, olmayan "Coming Soon" olarak gösterilir */}
+        {/* Mağaza linkleri — canlı olan tıklanabilir, olmayan "Coming Soon" rozetiyle gösterilir */}
         {game.storeLinks.length > 0 && (
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <span className="text-xs font-semibold uppercase tracking-wide text-foreground-muted">
               {t.gameShowcase.downloadNowAt}
             </span>
-            {game.storeLinks.map((link) =>
-              link.url ? (
-                <a
-                  key={link.label}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-xl border border-border bg-background-elevated px-4 py-2 text-foreground transition-colors hover:border-primary"
-                >
-                  <span className="flex flex-col leading-tight">
-                    <span className="text-[10px] text-foreground-muted">
-                      {storeSublabel(link.label, t)}
-                    </span>
-                    <span className="text-sm font-semibold">{link.label}</span>
-                  </span>
-                </a>
-              ) : (
-                <span
-                  key={link.label}
-                  aria-label={`${link.label}: ${t.gameShowcase.comingSoon}`}
-                  className="flex items-center gap-2 rounded-xl border border-dashed border-border px-4 py-2 text-foreground-muted"
-                >
-                  <span className="flex flex-col leading-tight">
-                    <span className="text-[10px]">
-                      {t.gameShowcase.comingSoon}
-                    </span>
-                    <span className="text-sm font-semibold">{link.label}</span>
-                  </span>
-                </span>
-              )
-            )}
+            {game.storeLinks.map((link) => (
+              <StoreBadge
+                key={link.label}
+                label={link.label}
+                url={link.url}
+                comingSoonLabel={t.gameShowcase.comingSoon}
+              />
+            ))}
           </div>
         )}
       </div>

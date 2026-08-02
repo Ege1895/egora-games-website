@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   PlayCircleIcon,
-  StarIcon,
   DevicePhoneMobileIcon,
   CalendarIcon,
 } from "@heroicons/react/24/solid";
@@ -92,21 +92,16 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="relative aspect-square w-full max-w-lg justify-self-center"
+          className="relative aspect-square w-full max-w-lg justify-self-center overflow-hidden rounded-[2.5rem] border border-border"
         >
-          {/*
-            TODO: gerçek oyun/karakter görseliyle (hero illustration veya key art)
-            değiştirilecek. Şimdilik marka rengiyle soyut bir kompozisyon.
-          */}
-          <div className="absolute inset-0 rounded-[2.5rem] border border-border bg-gradient-to-br from-primary/30 via-background-elevated to-accent/20" />
-          <div className="absolute inset-8 rounded-[2rem] border border-border/60 bg-background-elevated/60 backdrop-blur-sm" />
-          <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/40 blur-3xl" />
-          <div className="absolute bottom-10 left-10 flex items-center gap-2 rounded-2xl border border-border bg-background/90 px-4 py-3 shadow-lg backdrop-blur">
-            <StarIcon aria-hidden className="h-5 w-5 text-accent" />
-            <span className="text-sm font-semibold text-foreground">
-              {t.hero.keyArtPlaceholder}
-            </span>
-          </div>
+          <Image
+            src="/images/studio/hero-office.jpg"
+            alt="Egora Games studio"
+            fill
+            priority
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            className="object-cover"
+          />
         </motion.div>
       </Container>
     </section>
