@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { FeaturedGames } from "@/components/sections/FeaturedGames";
 import { WhyEgora } from "@/components/sections/WhyEgora";
-import { Vision } from "@/components/sections/Vision";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, SOCIAL_LINKS } from "@/lib/constants";
 import { buildMetadata } from "@/lib/seo";
 
@@ -28,7 +27,6 @@ export default function Home() {
       <Hero />
       <FeaturedGames />
       <WhyEgora />
-      <Vision />
     </main>
   );
 }

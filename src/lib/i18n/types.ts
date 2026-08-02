@@ -66,11 +66,6 @@ export type Dictionary = {
     description: string;
     reasons: { title: string; description: string }[];
   };
-  vision: {
-    badge: string;
-    title: string;
-    description: string;
-  };
   gameDetail: {
     aboutGame: string;
     features: string;

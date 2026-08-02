@@ -86,12 +86,6 @@ export const en: Dictionary = {
       },
     ],
   },
-  vision: {
-    badge: "Our Vision",
-    title: "Building the next generation of memorable games",
-    description:
-      "We believe great games come from small, empowered teams who care deeply about craft and player experience. Our goal is to build a studio that lasts for decades, not just ship a single hit.",
-  },
   gameDetail: {
     aboutGame: "About the Game",
     features: "Features",

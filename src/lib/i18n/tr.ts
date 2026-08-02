@@ -85,12 +85,6 @@ export const tr: Dictionary = {
       },
     ],
   },
-  vision: {
-    badge: "Vizyonumuz",
-    title: "Akılda kalıcı oyunların yeni neslini inşa ediyoruz",
-    description:
-      "Harika oyunların, zanaate ve oyuncu deneyimine derinden önem veren küçük ve yetkin ekiplerden doğduğuna inanıyoruz. Amacımız tek bir hit oyun çıkarmak değil, onlarca yıl sürecek bir stüdyo inşa etmek.",
-  },
   gameDetail: {
     aboutGame: "Oyun Hakkında",
     features: "Özellikler",
