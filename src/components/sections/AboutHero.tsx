@@ -46,9 +46,8 @@ export function AboutHero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="relative aspect-square w-full max-w-lg justify-self-center overflow-hidden rounded-[2.5rem] border border-border bg-gradient-to-br from-primary/30 via-background-elevated to-accent/20"
         >
-          {/* TODO: gerçek stüdyo/ekip fotoğrafıyla değiştirilecek */}
           <Image
-            src="/images/studio/team.webp"
+            src="/images/studio/team.jpg"
             alt="Egora Games team"
             fill
             loading="lazy"
