@@ -5,7 +5,7 @@ export function buildMetadata({
   title,
   description = SITE_DESCRIPTION,
   path = "",
-  image = "/opengraph-image",
+  image = "/images/brand/og-image.jpg",
 }: {
   title: string;
   description?: string;
