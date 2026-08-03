@@ -98,7 +98,7 @@ export function Hero() {
           className="relative aspect-square w-full max-w-lg justify-self-center overflow-hidden rounded-[2.5rem] border border-border"
         >
           <Image
-            src="/images/studio/hero-office.jpg"
+            src="/images/studio/hero-office2.jpg"
             alt="Egora Games studio"
             fill
             priority
