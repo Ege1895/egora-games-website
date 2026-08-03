@@ -3,5 +3,6 @@ main = "src/index.ts"
 compatibility_date = "2025-01-01"
 
 routes = [
-  { pattern = "egoragames.com/api/contact", zone_name = "egoragames.com" }
+  { pattern = "egoragames.com/api/contact", zone_name = "egoragames.com" },
+  { pattern = "egoragames.com/api/newsletter", zone_name = "egoragames.com" }
 ]

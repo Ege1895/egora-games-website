@@ -69,25 +69,14 @@ export function GameShowcaseRow({
               <h3 className="text-lg font-bold leading-tight">
                 {game.title}
               </h3>
-              {/* Yayınlanmamış oyunlarda puan gösterilmiyor. TODO: gerçek kullanıcı puanı bağlanacak */}
-              {isLive && (
-                <div
-                  className="flex items-center gap-0.5"
-                  aria-label={t.gameShowcase.ratingSrLabel}
-                >
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <StarIcon
-                      key={i}
-                      aria-hidden
-                      className={cn(
-                        "h-3.5 w-3.5",
-                        i < 4 ? "text-accent-on-scrim" : "text-white/30"
-                      )}
-                    />
-                  ))}
-                  <span className="ml-1 text-xs text-white">(TODO)</span>
-                </div>
-              )}
+              <div
+                className="flex items-center gap-0.5"
+                aria-label={t.gameShowcase.ratingSrLabel}
+              >
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <StarIcon key={i} aria-hidden className="h-3.5 w-3.5 text-accent-on-scrim" />
+                ))}
+              </div>
             </div>
           </div>
 
@@ -104,9 +93,6 @@ export function GameShowcaseRow({
         {/* Mağaza linkleri — canlı olan tıklanabilir, olmayan "Coming Soon" rozetiyle gösterilir */}
         {game.storeLinks.length > 0 && (
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <span className="text-xs font-semibold uppercase tracking-wide text-foreground-muted">
-              {t.gameShowcase.downloadNowAt}
-            </span>
             {game.storeLinks.map((link) => (
               <StoreBadge
                 key={link.label}

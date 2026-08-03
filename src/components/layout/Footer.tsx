@@ -1,13 +1,16 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import {
   CONTACT_INFO,
   FOOTER_LINKS,
+  NEWSLETTER_API_ENDPOINT,
   SITE_NAME,
   SOCIAL_LINKS,
 } from "@/lib/constants";
@@ -19,9 +22,43 @@ const SOCIAL_ITEMS = [
   { label: "Discord", href: SOCIAL_LINKS.discord },
 ];
 
+type SubscribeStatus = "idle" | "submitting" | "success" | "error";
+
 export function Footer() {
   const { t } = useLocale();
   const year = new Date().getFullYear();
+  const [status, setStatus] = useState<SubscribeStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  async function handleSubscribe(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("submitting");
+    setErrorMessage(null);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(NEWSLETTER_API_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(formData.entries())),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || t.footer.subscribeGenericError);
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(
+        error instanceof Error ? error.message : t.footer.subscribeGenericError
+      );
+    }
+  }
 
   const navLinks = [
     { label: t.nav.home, href: "/" },
@@ -42,22 +79,44 @@ export function Footer() {
               {t.footer.newsletterDescription}
             </p>
           </div>
-          {/* TODO: Faz 5 — Formspree/Web3Forms endpoint'i ile bağlanacak */}
-          <form className="flex w-full max-w-md flex-col gap-3 sm:flex-row">
-            <label htmlFor="footer-email" className="sr-only">
-              {t.footer.emailSrLabel}
-            </label>
-            <input
-              id="footer-email"
-              type="email"
-              required
-              placeholder={t.footer.emailPlaceholder}
-              className="w-full rounded-full border border-border bg-background-elevated px-5 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none"
-            />
-            <Button type="submit" className="shrink-0">
-              {t.footer.subscribe}
-            </Button>
-          </form>
+          {status === "success" ? (
+            <div className="flex w-full max-w-md items-center justify-center gap-2 text-sm font-medium text-foreground lg:justify-start">
+              <CheckCircleIcon aria-hidden className="h-5 w-5 text-primary" />
+              {t.footer.subscribeSuccess}
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubscribe}
+              className="flex w-full max-w-md flex-col gap-3"
+            >
+              <div className="flex w-full flex-col gap-3 sm:flex-row">
+                <label htmlFor="footer-email" className="sr-only">
+                  {t.footer.emailSrLabel}
+                </label>
+                <input
+                  id="footer-email"
+                  name="email"
+                  type="email"
+                  required
+                  disabled={status === "submitting"}
+                  placeholder={t.footer.emailPlaceholder}
+                  className="w-full rounded-full border border-border bg-background-elevated px-5 py-3 text-sm text-foreground placeholder:text-foreground-muted focus:border-primary focus:outline-none disabled:opacity-60"
+                />
+                <Button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="shrink-0"
+                >
+                  {status === "submitting" ? t.footer.subscribing : t.footer.subscribe}
+                </Button>
+              </div>
+              {status === "error" && (
+                <p role="alert" className="text-sm text-danger">
+                  {errorMessage}
+                </p>
+              )}
+            </form>
+          )}
         </div>
       </Container>
 

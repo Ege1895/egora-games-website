@@ -17,7 +17,6 @@ import { Game } from "@/types";
 
 export function GameDetail({ game }: { game: Game }) {
   const { locale, t } = useLocale();
-  const isLive = game.storeLinks.some((link) => link.url);
   const status = getGameStatus(game);
   const screenshots = game.screenshots[locale];
 
@@ -51,22 +50,14 @@ export function GameDetail({ game }: { game: Game }) {
           <p className="max-w-2xl text-lg text-foreground-muted">
             {game.tagline[locale]}
           </p>
-          {/* Yayınlanmamış oyunlarda puan gösterilmiyor. TODO: gerçek kullanıcı puanı bağlanacak */}
-          {isLive && (
-            <div
-              className="flex items-center gap-1"
-              aria-label={t.gameShowcase.ratingSrLabel}
-            >
-              {Array.from({ length: 5 }).map((_, i) => (
-                <StarIcon
-                  key={i}
-                  aria-hidden
-                  className={i < 4 ? "h-5 w-5 text-accent" : "h-5 w-5 text-foreground-muted/30"}
-                />
-              ))}
-              <span className="ml-1 text-sm text-foreground-muted">(TODO)</span>
-            </div>
-          )}
+          <div
+            className="flex items-center gap-1"
+            aria-label={t.gameShowcase.ratingSrLabel}
+          >
+            {Array.from({ length: 5 }).map((_, i) => (
+              <StarIcon key={i} aria-hidden className="h-5 w-5 text-accent" />
+            ))}
+          </div>
           <PlatformBadges platforms={game.platforms} />
           {game.storeLinks.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-4">

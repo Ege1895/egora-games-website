@@ -23,6 +23,9 @@ export type Dictionary = {
     emailSrLabel: string;
     emailPlaceholder: string;
     subscribe: string;
+    subscribing: string;
+    subscribeSuccess: string;
+    subscribeGenericError: string;
     tagline: string;
     navigationHeading: string;
     contactHeading: string;
@@ -53,7 +56,6 @@ export type Dictionary = {
   };
   gameShowcase: {
     readMore: string;
-    downloadNowAt: string;
     comingSoon: string;
     ratingSrLabel: string;
     storeSublabelAppStore: string;

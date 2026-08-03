@@ -25,3 +25,5 @@ export const CONTACT_INFO = {
 
 // Cloudflare Worker (workers/contact-form) → Brevo API üzerinden mail gönderir
 export const CONTACT_API_ENDPOINT = "/api/contact";
+// Aynı worker, Brevo Contacts API'siyle kişiyi bir listeye ekler (e-posta göndermez)
+export const NEWSLETTER_API_ENDPOINT = "/api/newsletter";

@@ -6,6 +6,8 @@ const RECIPIENT_EMAIL = "egoragames@gmail.com";
 const SENDER_EMAIL = "egoragames@gmail.com";
 const SENDER_NAME = "Egora Games Website";
 const ALLOWED_ORIGIN = "https://egoragames.com";
+// Brevo > Contacts > Lists > "Website Newsletter" (footer abonelik formu)
+const NEWSLETTER_LIST_ID = 3;
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -111,6 +113,108 @@ function buildEmailHtml(fields: {
 </html>`;
 }
 
+async function parseBody(request: Request): Promise<Record<string, string>> {
+  const contentType = request.headers.get("Content-Type") || "";
+  if (contentType.includes("application/json")) {
+    return request.json();
+  }
+  const formData = await request.formData();
+  return Object.fromEntries(
+    Array.from(formData.entries()).map(([k, v]) => [k, String(v)])
+  );
+}
+
+async function handleContact(request: Request, env: Env): Promise<Response> {
+  let data: Record<string, string>;
+  try {
+    data = await parseBody(request);
+  } catch {
+    return jsonResponse({ error: "Geçersiz istek gövdesi." }, 400);
+  }
+
+  const name = (data.name || "").trim();
+  const email = (data.email || "").trim();
+  const subject = (data.subject || "").trim();
+  const message = (data.message || "").trim();
+
+  if (!name || !message || !EMAIL_PATTERN.test(email)) {
+    return jsonResponse(
+      { error: "Lütfen tüm alanları doğru şekilde doldurun." },
+      400
+    );
+  }
+
+  const brevoResponse = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+      "content-type": "application/json",
+      "api-key": env.BREVO_API_KEY,
+    },
+    body: JSON.stringify({
+      sender: { name: SENDER_NAME, email: SENDER_EMAIL },
+      to: [{ email: RECIPIENT_EMAIL }],
+      replyTo: { email, name },
+      subject: `🎮 egoragames.com — Yeni mesaj: ${name}${
+        subject ? " — " + subject : ""
+      }`,
+      htmlContent: buildEmailHtml({ name, email, subject, message }),
+    }),
+  });
+
+  if (!brevoResponse.ok) {
+    const errorBody = await brevoResponse.text();
+    console.error("Brevo error:", brevoResponse.status, errorBody);
+    return jsonResponse(
+      { error: "Mesaj gönderilemedi, lütfen daha sonra tekrar deneyin." },
+      502
+    );
+  }
+
+  return jsonResponse({ success: true });
+}
+
+async function handleNewsletter(request: Request, env: Env): Promise<Response> {
+  let data: Record<string, string>;
+  try {
+    data = await parseBody(request);
+  } catch {
+    return jsonResponse({ error: "Geçersiz istek gövdesi." }, 400);
+  }
+
+  const email = (data.email || "").trim();
+
+  if (!EMAIL_PATTERN.test(email)) {
+    return jsonResponse({ error: "Lütfen geçerli bir e-posta girin." }, 400);
+  }
+
+  // updateEnabled: true → kişi zaten varsa hata vermek yerine listeye ekler
+  const brevoResponse = await fetch("https://api.brevo.com/v3/contacts", {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+      "content-type": "application/json",
+      "api-key": env.BREVO_API_KEY,
+    },
+    body: JSON.stringify({
+      email,
+      listIds: [NEWSLETTER_LIST_ID],
+      updateEnabled: true,
+    }),
+  });
+
+  if (!brevoResponse.ok) {
+    const errorBody = await brevoResponse.text();
+    console.error("Brevo error:", brevoResponse.status, errorBody);
+    return jsonResponse(
+      { error: "Abonelik başarısız oldu, lütfen daha sonra tekrar deneyin." },
+      502
+    );
+  }
+
+  return jsonResponse({ success: true });
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     if (request.method === "OPTIONS") {
@@ -121,60 +225,12 @@ export default {
       return jsonResponse({ error: "Method not allowed" }, 405);
     }
 
-    let data: Record<string, string>;
-    try {
-      const contentType = request.headers.get("Content-Type") || "";
-      if (contentType.includes("application/json")) {
-        data = await request.json();
-      } else {
-        const formData = await request.formData();
-        data = Object.fromEntries(
-          Array.from(formData.entries()).map(([k, v]) => [k, String(v)])
-        );
-      }
-    } catch {
-      return jsonResponse({ error: "Geçersiz istek gövdesi." }, 400);
+    const { pathname } = new URL(request.url);
+
+    if (pathname === "/api/newsletter") {
+      return handleNewsletter(request, env);
     }
 
-    const name = (data.name || "").trim();
-    const email = (data.email || "").trim();
-    const subject = (data.subject || "").trim();
-    const message = (data.message || "").trim();
-
-    if (!name || !message || !EMAIL_PATTERN.test(email)) {
-      return jsonResponse(
-        { error: "Lütfen tüm alanları doğru şekilde doldurun." },
-        400
-      );
-    }
-
-    const brevoResponse = await fetch("https://api.brevo.com/v3/smtp/email", {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "content-type": "application/json",
-        "api-key": env.BREVO_API_KEY,
-      },
-      body: JSON.stringify({
-        sender: { name: SENDER_NAME, email: SENDER_EMAIL },
-        to: [{ email: RECIPIENT_EMAIL }],
-        replyTo: { email, name },
-        subject: `🎮 egoragames.com — Yeni mesaj: ${name}${
-          subject ? " — " + subject : ""
-        }`,
-        htmlContent: buildEmailHtml({ name, email, subject, message }),
-      }),
-    });
-
-    if (!brevoResponse.ok) {
-      const errorBody = await brevoResponse.text();
-      console.error("Brevo error:", brevoResponse.status, errorBody);
-      return jsonResponse(
-        { error: "Mesaj gönderilemedi, lütfen daha sonra tekrar deneyin." },
-        502
-      );
-    }
-
-    return jsonResponse({ success: true });
+    return handleContact(request, env);
   },
 };
