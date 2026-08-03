@@ -30,12 +30,12 @@ export function Navbar() {
         >
           <Link href="/" onClick={() => setIsOpen(false)}>
             <Image
-              src="/images/brand/logo.png"
+              src="/images/brand/logo3.png"
               alt={SITE_NAME}
-              width={200}
-              height={102}
+              width={1094}
+              height={427}
               priority
-              className="h-16 w-auto rounded-lg"
+              className="h-16 w-auto"
             />
           </Link>
 

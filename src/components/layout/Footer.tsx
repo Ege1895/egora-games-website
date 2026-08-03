@@ -125,12 +125,12 @@ export function Footer() {
       <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-4">
           <Image
-            src="/images/brand/logo.png"
+            src="/images/brand/logo3.png"
             alt={SITE_NAME}
-            width={200}
-            height={102}
+            width={1094}
+            height={427}
             loading="lazy"
-            className="h-16 w-auto self-start rounded-lg"
+            className="h-16 w-auto self-start"
           />
           <p className="text-sm text-foreground-muted">{t.footer.tagline}</p>
         </div>
