@@ -9,6 +9,8 @@ export type Game = {
   description: LocalizedText;
   coverImage: string;
   bannerImage: string;
+  // Belirtilmezse site genelindeki varsayılan OG görseline düşer (bkz. seo.ts)
+  ogImage?: string;
   // Mağaza ekran görüntüleri dile göre değişir (TR arayüz metni farklı) —
   // her locale kendi ekran görüntü setini tutar.
   screenshots: { en: string[]; tr: string[] };

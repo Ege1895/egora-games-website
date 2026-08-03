@@ -25,6 +25,7 @@ export async function generateMetadata({
     title: game.title,
     description: game.description.en,
     path: `/games/${game.slug}`,
+    image: game.ogImage,
   });
 }
 

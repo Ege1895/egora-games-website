@@ -16,6 +16,7 @@ export const GAMES: Game[] = [
     // banner = store screenshot'larından üretilen key art kompozisyonu.
     coverImage: "/images/games/nublox/icon.png",
     bannerImage: "/images/games/nublox/banner.jpg",
+    ogImage: "/images/games/nublox/og-image.jpg",
     screenshots: {
       en: [1, 2, 3, 4, 5, 6].map((i) => `/images/games/nublox/screenshots/en/${i}.webp`),
       tr: [1, 2, 3, 4, 5, 6].map((i) => `/images/games/nublox/screenshots/tr/${i}.webp`),
@@ -73,6 +74,7 @@ export const GAMES: Game[] = [
     // ekran görüntüleri = Store Görselleri/IOS/Iphone (EN/TR, sahneye göre eşleştirildi).
     coverImage: "/images/games/the-process/icon.png",
     bannerImage: "/images/games/the-process/banner.jpg",
+    ogImage: "/images/games/the-process/og-image.jpg",
     screenshots: {
       en: [1, 2, 3, 4, 5, 6, 7].map((i) => `/images/games/the-process/screenshots/en/${i}.webp`),
       tr: [1, 2, 3, 4, 5, 6, 7].map((i) => `/images/games/the-process/screenshots/tr/${i}.webp`),
