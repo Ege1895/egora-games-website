@@ -5,6 +5,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { TECH_STACK } from "@/lib/mock-about";
+import { TECH_ICONS } from "@/components/ui/TechIcon";
 
 export function Technology() {
   const { t } = useLocale();
@@ -26,8 +27,9 @@ export function Technology() {
           {TECH_STACK.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-border bg-background px-5 py-2 text-sm font-medium text-foreground"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2 text-sm font-medium text-foreground"
             >
+              {TECH_ICONS[tech]}
               {tech}
             </span>
           ))}

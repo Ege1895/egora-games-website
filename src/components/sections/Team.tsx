@@ -12,7 +12,7 @@ export function Team() {
   const { t } = useLocale();
 
   return (
-    <section className="relative overflow-hidden border-t border-border bg-black py-24 sm:py-32">
+    <section className="relative overflow-hidden border-t border-border bg-background py-24 sm:py-32">
       <Container className="relative flex flex-col gap-16">
         <Reveal>
           <SectionHeading
