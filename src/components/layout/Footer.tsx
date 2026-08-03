@@ -16,10 +16,9 @@ import {
 } from "@/lib/constants";
 
 const SOCIAL_ITEMS = [
-  { label: "Twitter", href: SOCIAL_LINKS.twitter },
   { label: "LinkedIn", href: SOCIAL_LINKS.linkedin },
   { label: "YouTube", href: SOCIAL_LINKS.youtube },
-  { label: "Discord", href: SOCIAL_LINKS.discord },
+  { label: "Instagram", href: SOCIAL_LINKS.instagram },
 ];
 
 type SubscribeStatus = "idle" | "submitting" | "success" | "error";

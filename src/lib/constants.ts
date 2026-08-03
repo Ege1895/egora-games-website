@@ -7,12 +7,10 @@ export const SITE_URL = "https://egoragames.com";
 export const SITE_DESCRIPTION =
   "Egora Games is an independent studio building premium, story-driven mobile games.";
 
-// TODO: gerçek sosyal medya linkleri belirlenince güncelle
 export const SOCIAL_LINKS = {
-  twitter: "https://twitter.com/egoragames",
-  linkedin: "https://linkedin.com/company/egoragames",
+  linkedin: "https://www.linkedin.com/company/egora-games",
   youtube: "https://youtube.com/@egoragames",
-  discord: "https://discord.gg/egoragames",
+  instagram: "https://instagram.com/egoragames",
 } as const;
 
 // TODO: Privacy Policy, Terms of Service sayfaları eklenince buraya geri eklenecek

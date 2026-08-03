@@ -13,10 +13,9 @@ import { useLocale } from "@/lib/i18n/LocaleContext";
 import { CONTACT_API_ENDPOINT, CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
 
 const SOCIAL_ITEMS = [
-  { label: "Twitter", href: SOCIAL_LINKS.twitter },
   { label: "LinkedIn", href: SOCIAL_LINKS.linkedin },
   { label: "YouTube", href: SOCIAL_LINKS.youtube },
-  { label: "Discord", href: SOCIAL_LINKS.discord },
+  { label: "Instagram", href: SOCIAL_LINKS.instagram },
 ];
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
