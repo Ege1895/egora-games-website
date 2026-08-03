@@ -70,7 +70,10 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-background-elevated">
       <Container className="border-b border-border py-12">
-        <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-border bg-background px-8 py-10 text-center lg:flex-row lg:text-left">
+        <div
+          id="newsletter"
+          className="flex scroll-mt-24 flex-col items-center justify-between gap-6 rounded-3xl border border-border bg-background px-8 py-10 text-center lg:flex-row lg:text-left"
+        >
           <div>
             <h2 className="text-2xl font-bold text-foreground">
               {t.footer.newsletterTitle}
