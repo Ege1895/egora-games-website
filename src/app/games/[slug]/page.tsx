@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import { GameDetail } from "@/components/sections/GameDetail";
 import { GAMES, getGameBySlug } from "@/lib/mock-games";
 import { buildMetadata } from "@/lib/seo";
-import { SITE_URL } from "@/lib/constants";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd, softwareApplicationJsonLd, videoGameJsonLd } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   return GAMES.map((game) => ({ slug: game.slug }));
@@ -41,23 +42,16 @@ export default async function GamePage({
     notFound();
   }
 
-  const videoGameJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "VideoGame",
-    name: game.title,
-    description: game.description.en,
-    genre: game.genre.en,
-    url: `${SITE_URL}/games/${game.slug}`,
-    image: `${SITE_URL}${game.coverImage}`,
-    gamePlatform: game.platforms,
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoGameJsonLd) }}
+      <JsonLd data={videoGameJsonLd(game)} />
+      <JsonLd data={softwareApplicationJsonLd(game)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Games", path: "/games" },
+          { name: game.title, path: `/games/${game.slug}` },
+        ])}
       />
       <GameDetail game={game} />
     </>

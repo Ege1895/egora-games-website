@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { buildMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
@@ -11,6 +13,10 @@ export const metadata: Metadata = buildMetadata({
 export default function ContactPage() {
   return (
     <main className="flex flex-1 flex-col">
+      <JsonLd data={breadcrumbJsonLd([
+        { name: "Home", path: "/" },
+        { name: "Contact", path: "/contact" },
+      ])} />
       <ContactSection />
     </main>
   );
