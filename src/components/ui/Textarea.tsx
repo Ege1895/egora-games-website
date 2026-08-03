@@ -26,7 +26,7 @@ export function Textarea({
       <textarea
         id={id}
         className={cn(
-          "resize-y rounded-md border bg-surface-hi px-3.5 py-3 text-sm text-foreground placeholder:text-foreground-dim outline-none transition-colors disabled:opacity-60",
+          "max-h-96 min-h-32 resize-y rounded-md border bg-surface-hi px-3.5 py-3 text-sm text-foreground placeholder:text-foreground-dim outline-none transition-colors disabled:opacity-60",
           stateClasses[state],
           className
         )}

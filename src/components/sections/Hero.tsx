@@ -79,7 +79,10 @@ export function Hero() {
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col gap-1">
                 <stat.icon aria-hidden className="h-5 w-5 text-accent" />
-                <dt className="text-2xl font-bold text-foreground">
+                {/* min-h-16, değer 1 veya 2 satıra sarsa da (örn. "iOS &
+                    Android") alttaki etiketlerin sütunlar arasında aynı
+                    hizada kalmasını sağlıyor. */}
+                <dt className="min-h-16 text-2xl font-bold text-foreground">
                   {stat.value}
                 </dt>
                 <dd className="text-xs text-foreground-muted">{stat.label}</dd>
