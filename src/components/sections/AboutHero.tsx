@@ -47,7 +47,7 @@ export function AboutHero() {
           className="relative aspect-square w-full max-w-lg justify-self-center overflow-hidden rounded-[2.5rem] border border-border bg-gradient-to-br from-primary/30 via-background-elevated to-accent/20"
         >
           <Image
-            src="/images/studio/team.jpg"
+            src="/images/studio/team2.jpg"
             alt="Egora Games team"
             fill
             loading="lazy"

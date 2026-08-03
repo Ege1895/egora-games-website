@@ -11,7 +11,7 @@ export const contentType = "image/png";
 // build-time'da çalıştığı için görseli data URI olarak gömüyoruz.
 export default async function OpengraphImage() {
   const logoData = await readFile(
-    join(process.cwd(), "public/images/brand/logo3.png")
+    join(process.cwd(), "public/images/brand/logo3-dark.png")
   );
   const logoSrc = `data:image/png;base64,${logoData.toString("base64")}`;
 

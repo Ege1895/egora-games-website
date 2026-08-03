@@ -1,14 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Container } from "@/components/ui/Container";
 import { LanguageToggle } from "@/components/ui/LanguageToggle";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { useLocale } from "@/lib/i18n/LocaleContext";
-import { SITE_NAME } from "@/lib/constants";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,14 +28,7 @@ export function Navbar() {
           className="flex h-20 items-center justify-between"
         >
           <Link href="/" onClick={() => setIsOpen(false)}>
-            <Image
-              src="/images/brand/logo3.png"
-              alt={SITE_NAME}
-              width={1094}
-              height={427}
-              priority
-              className="h-16 w-auto"
-            />
+            <BrandLogo priority className="h-16 w-auto" />
           </Link>
 
           <ul className="hidden items-center gap-10 lg:flex">
