@@ -18,6 +18,7 @@ const SOCIAL_ITEMS = [
   { label: "LinkedIn", href: SOCIAL_LINKS.linkedin },
   { label: "YouTube", href: SOCIAL_LINKS.youtube },
   { label: "Instagram", href: SOCIAL_LINKS.instagram },
+  { label: "TikTok", href: SOCIAL_LINKS.tiktok },
 ];
 
 type SubscribeStatus = "idle" | "submitting" | "success" | "error";
