@@ -10,7 +10,7 @@ export const SITE_DESCRIPTION =
 export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/company/egora-games",
   youtube: "https://youtube.com/@egoragames",
-  instagram: "https://instagram.com/egoragames",
+  instagram: "https://www.instagram.com/egoragames/",
 } as const;
 
 // TODO: Privacy Policy, Terms of Service sayfaları eklenince buraya geri eklenecek
