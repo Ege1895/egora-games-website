@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gizlilik Politikası — The Process</title>
+<style>
+  :root {
+    color-scheme: light;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+    line-height: 1.6;
+    color: #1c1c1c;
+    background: #ffffff;
+  }
+  h1 { font-size: 1.8rem; margin-bottom: 4px; }
+  .subtitle { color: #767676; font-size: 0.95rem; margin-bottom: 32px; }
+  h2 { font-size: 1.2rem; margin-top: 36px; border-bottom: 1px solid #ddd; padding-bottom: 6px; }
+  h3 { font-size: 1.02rem; margin-top: 22px; }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0 20px; font-size: 0.92rem; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: rgba(0,0,0,0.04); }
+  .box {
+    background: #f7f5f0;
+    border: 1px solid #e2ddd0;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 18px 0;
+    font-size: 0.92rem;
+  }
+  a { color: #a8641f; }
+  .lang-switch { margin-bottom: 24px; font-size: 0.9rem; }
+  footer { margin-top: 48px; color: #767676; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<div class="lang-switch"><a href="../en/">Read in English / İngilizce için tıklayın</a></div>
+
+<h1>Gizlilik Politikası</h1>
+<p class="subtitle">The Process — son güncelleme: 25 Temmuz 2026</p>
+
+<div class="box">
+  Bu politika, <strong>The Process</strong> ("Uygulama", "biz") tarafından hangi verilerin, neden
+  toplandığını ve senin hangi seçeneklere sahip olduğunu açıklar. Uygulamayı "yalnız oyun mekaniğinin
+  gerektirdiğini topla" ilkesiyle geliştirdik: Uygulama'da hiçbir yerde hesap oluşturma, e-posta/şifre
+  girişi veya gerçek isim zorunluluğu yoktur.
+</div>
+
+<h2>1. Verilerinden kim sorumlu (veri sorumlusu)</h2>
+<p>
+  Uygulama, <strong>Egora Games</strong> adıyla faaliyet gösteren bağımsız bir geliştirici tarafından
+  geliştirilmekte ve yayınlanmaktadır. Gizlilikle ilgili her türlü soru, talep veya şikayet için:
+</p>
+<p><strong>E-posta:</strong> <a href="mailto:egoragames@gmail.com">egoragames@gmail.com</a></p>
+
+<h2>2. Topladığımız veriler ve nedenleri</h2>
+<table>
+  <tr><th>Kategori</th><th>Nedir</th><th>Neden topluyoruz</th><th>Kaynak</th></tr>
+  <tr>
+    <td>Anonim hesap kimliği</td>
+    <td>Firebase Authentication'ın (anonim giriş) ürettiği rastgele bir kimlik. Adınla, e-postanla veya telefon numaranla bağlantılı değildir.</td>
+    <td>Fabrikanın ilerlemesini oturumlar ve cihazlar arasında kaydetmek/geri yüklemek için.</td>
+    <td>Firebase Authentication (Google)</td>
+  </tr>
+  <tr>
+    <td>Platform oyun kimliği (isteğe bağlı)</td>
+    <td>Kullanılabiliyorsa ve izin verirsen, Game Center (iOS) veya Google Play Games (Android) oyuncu kimliğin.</td>
+    <td>Platformun kendi oyun hizmeti üzerinden başarım/liderlik tablosu özelliklerini etkinleştirmek için (desteklendiği durumlarda).</td>
+    <td>Apple Game Center / Google Play Games Services</td>
+  </tr>
+  <tr>
+    <td>Oyun ilerleme verisi</td>
+    <td>Fabrikanın durumu: node yerleşimi, üretim toplamları, reboot sayısı, Blueprint/Aether ilerlemesi, kontratlar, vardiya serisi, kozmetikler ve yalnız Uygulama içinde kullanılan, kendi seçtiğin bir "fabrika adı".</td>
+    <td>İlerlemeni bulutta saklayarak silme/yeni cihaza geçme durumunda kaybolmasını önlemek ve haftalık liderlik tablosunu (seçtiğin fabrika adı ve skorunun diğer oyunculara gösterildiği) çalıştırmak için.</td>
+    <td>Cloud Firestore (Google Firebase)</td>
+  </tr>
+  <tr>
+    <td>Kullanım analitiği</td>
+    <td>Ekran görüntülemeleri, oturum süresi/sayısı, özellik kullanım olayları (ör. "öğretici adımı tamamlandı", "ilk reboot"), genel cihaz/işletim sistemi bilgisi.</td>
+    <td>Oyunun hangi kısımlarının kullanıldığını anlamak, ilk deneyimdeki sürtünmeleri gidermek ve deneyimi iyileştirmek için. Veriler toplulaştırılır, seni kişisel olarak tanımlamak için kullanılmaz.</td>
+    <td>Firebase Analytics (Google)</td>
+  </tr>
+  <tr>
+    <td>Çökme ve tanılama verisi</td>
+    <td>Hata izleri (stack trace), cihaz modeli, işletim sistemi sürümü ve çökme anındaki uygulama durumu.</td>
+    <td>Hataları ve çökmeleri tespit etmek, tanılamak ve düzeltmek için.</td>
+    <td>Firebase Crashlytics (Google)</td>
+  </tr>
+  <tr>
+    <td>Reklam kimliği</td>
+    <td>Cihazının reklam kimliği (iOS'ta IDFA / Android'de GAID) — yalnız işletim sistemi seviyesinde bunu kapatmadıysan, ve gerekli bölgelerde yalnız onay verdikten sonra.</td>
+    <td>Uygulama içi reklamları göstermek ve performansını ölçmek; yalnız gerekli olduğu yerlerde ve onayınla, sana gösterilen reklamları kişiselleştirmek için.</td>
+    <td>Google AdMob / Google Mobile Ads SDK</td>
+  </tr>
+  <tr>
+    <td>Satın alma verisi</td>
+    <td>İsteğe bağlı "Ustabaşı Paketi" satın alımının tamamlandığı bilgisi ve ürün kimliği. Kart numaranı, fatura adresini veya başka bir ödeme detayını hiçbir zaman görmez veya saklamayız.</td>
+    <td>Satın aldığın içeriğin hesabında açılmasını sağlamak ve geçmiş bir satın almayı geri yüklemene izin vermek için.</td>
+    <td>Apple App Store / Google Play Billing (tamamen Apple/Google tarafından işlenir)</td>
+  </tr>
+</table>
+
+<p>
+  Uygulama'nın hiçbir yerinde gerçek adını, adresini, telefon numaranı veya e-postanı toplamayız. Seçtiğin
+  "fabrika adı" kendi belirlediğin bir takma isimdir ve Ayarlar'dan istediğin zaman değiştirebilirsin —
+  haftalık liderlik tablosunda diğer oyunculara göründüğü için buraya gerçek adını ya da başka kişisel
+  bilgi girme.
+</p>
+
+<h2>3. İşlemenin hukuki dayanağı</h2>
+<p>Yaşadığın yere bağlı olarak, aşağıdaki hukuki dayanaklardan bir veya birkaçına dayanırız:</p>
+<ul>
+  <li><strong>Sözleşmenin ifası</strong> — Uygulama'yı kurarak talep ettiğin temel oyun deneyimini sunmak ve ilerlemeni kaydetmek.</li>
+  <li><strong>Meşru menfaat</strong> — Uygulama'nın çalışır durumda kalması ve iyileştirilmesi için gerekli çökme raporlama, güvenlik ve temel ürün analitiği; haklarınla dengelenerek.</li>
+  <li><strong>Açık rıza</strong> — onayın hukuken zorunlu olduğu bölgelerde (AEA, İngiltere, İsviçre) kişiselleştirilmiş reklamcılık; bunu reddedebilir ve yine de (sana özel hedeflenmemiş) reklam görebilirsin. Onay, hukuken ilk gerekli olduğunda Uygulama içi bir onay formuyla (Google'ın User Messaging Platform'u) alınır, seçimini istediğin zaman Ayarlar'dan değiştirebilirsin.</li>
+</ul>
+
+<h2>4. Verilerini kimlerle paylaşıyoruz</h2>
+<p>
+  Verilerini satmayız. Gerekli minimum veriyi, her biri verilerini korumak ve yalnız bize hizmet sunmak
+  amacıyla kullanmakla sözleşmesel olarak yükümlü olan şu işleyicilerle paylaşırız:
+</p>
+<ul>
+  <li><strong>Google (Firebase, Cloud Firestore, AdMob, Google Play Services)</strong> — barındırma, kimlik doğrulama, veritabanı, analitik, çökme raporlama ve reklamcılık.</li>
+  <li><strong>Apple Inc.</strong> — Game Center kimliği (yalnız iOS'ta, izin verirsen) ve App Store satın alma işlemleri.</li>
+  <li>Diğer oyuncular — yalnız kendi seçtiğin fabrika adın ve haftalık skorun, kamuya açık liderlik tablosunda gösterilir.</li>
+</ul>
+
+<h2>5. Uluslararası veri aktarımı</h2>
+<p>
+  İşleyicilerimiz (başlıca Google), ikamet ettiğin ülkenin dışında, Avrupa Ekonomik Alanı dışı da dahil
+  olmak üzere birden fazla ülkede veri merkezleri işletir. Bu durumlarda aktarımlar, işleyicilerimizin
+  kendi veri işleme şartları kapsamında uyguladığı Standart Sözleşme Hükümleri gibi uygun güvencelerle
+  kapsanır.
+</p>
+
+<h2>6. Verilerini ne kadar süre saklıyoruz</h2>
+<ul>
+  <li><strong>Oyun ilerleme verisi</strong>, anonim hesabın aktif olduğu sürece saklanır. Uygulama içi "Tüm ilerlemeyi sıfırla" seçeneğini kullandığında (Ayarlar → Veri) veya talebin üzerine (bkz. Bölüm 8) silinir.</li>
+  <li><strong>Analitik ve çökme verisi</strong>, Firebase tarafından Google'ın standart saklama süreleri boyunca tutulur (analitik için genelde 14 aya kadar), ardından otomatik olarak silinir veya tamamen anonimleştirilir.</li>
+  <li><strong>Reklam kimlikleri</strong> bizim tarafımızdan saklanmaz; her reklam isteği için reklam SDK'sına doğrudan iletilir.</li>
+</ul>
+
+<h2>7. Haklarınız (GDPR)</h2>
+<p>
+  Konumuna bağlı olarak (bu bölüm AB/İngiltere GDPR'ı ve benzer düzenlemeler kapsamındaki hakları
+  yansıtır), şu haklara sahip olabilirsin:
+</p>
+<ul>
+  <li>Hakkında tuttuğumuz kişisel verilere erişmek;</li>
+  <li>Yanlış verileri düzelttirmek;</li>
+  <li>Verinin silinmesini talep etmek ("unutulma hakkı");</li>
+  <li>Belirli işlemeleri kısıtlamak veya itiraz etmek;</li>
+  <li>Verinin taşınabilir bir kopyasını almak;</li>
+  <li>Rızanı istediğin zaman geri çekmek (geri çekmeden önceki işlemeyi etkilemez);</li>
+  <li>Yerel veri koruma otoritene şikayette bulunmak.</li>
+</ul>
+
+<h3>Verini nasıl silersin</h3>
+<p>
+  Bulutta saklanan oyun verini istediğin zaman kendin silebilirsin: Uygulama içinde
+  <strong>Ayarlar → Veri → "Tüm İlerlemeyi Sıfırla"</strong>'yı aç ve her iki uyarıyı da onayla. Bu işlem,
+  kayıtlı fabrika durumunu bulut veritabanımızdan anında siler ve seni sıfırdan başlatır. Bu uygulama içi
+  seçeneğin kapsamadığı bir şey için (ör. cihazına bağlı analitik geçmişi) bize
+  <a href="mailto:egoragames@gmail.com">egoragames@gmail.com</a> adresinden yaz, talebini 30 gün içinde
+  işleme alırız.
+</p>
+
+<h2>8. Reklamcılık ve Kullanıcı Mesajlaşma Platformu (UMP)</h2>
+<p>
+  Uygulama reklam gösterir (banner reklamlar ve yalnız kullanıcının kendi başlattığı ödüllü video
+  reklamlar — bir reklam sana "reklam izle" butonuna kendin dokunmadan asla gösterilmez). Hukuken
+  gerektiği yerlerde, Uygulama'yı ilk açtığında kişiselleştirilmiş reklamcılığa izin verip vermediğini
+  soran bir onay diyaloğu görürsün. Bu seçimini, Uygulama'nın yerel verisini temizleyerek veya yeniden
+  kurarak istediğin zaman değiştirebilirsin — bu, onay akışını yeniden tetikler.
+</p>
+
+<h2>9. Çocukların gizliliği</h2>
+<p>
+  Uygulama, 18 yaş ve üzeri genel bir kitleye yöneliktir ve çocuklara yönelik değildir. Bulunduğun
+  yargı bölgesindeki geçerli yasanın gerektirdiği yaşın altındaki (ABD'de COPPA kapsamında 13, AB'nin
+  çoğunda 16, yerel yasa daha düşük bir yaş belirlemedikçe) çocuklardan bilerek kişisel veri toplamayız.
+  Bir çocuğun bize kişisel veri sağladığını düşünüyorsan bizimle iletişime geç, sileriz.
+</p>
+
+<h2>10. Türkiye — KVKK bildirimi</h2>
+<p>
+  Türkiye'deki kullanıcılar için: 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca,
+  Bölüm 2'de açıklanan veri kategorileri, KVKK m. 5'teki hukuki sebeplere dayanılarak işlenir (taraf
+  olduğun bir sözleşmenin ifası; hizmeti sunmamız ve güvenliğini sağlamamızdaki meşru menfaatimiz; ve
+  uygulanabilir olduğunda kişiselleştirilmiş reklamcılık için açık rızan). KVKK m. 11 uyarınca, verinin
+  işlenip işlenmediğini öğrenme, bu konuda bilgi talep etme, düzeltme veya silinmesini isteme ve yalnızca
+  otomatik analiz sonucu ortaya çıkan bir sonuca itiraz etme hakkına sahipsin. Bu haklarını Bölüm 1'deki
+  iletişim bilgileriyle kullanabilirsin.
+</p>
+
+<h2>11. Güvenlik</h2>
+<p>
+  Verilerini aktarım sırasında ve depolanırken şifreleyen, veritabanı erişimini yalnız kendi anonim
+  hesabınla sınırlayan güvenlik kurallarına sahip Google Firebase altyapısına güveniyoruz. Hiçbir
+  iletim veya depolama yöntemi %100 güvenli değildir, ancak verini korumak için makul, endüstri
+  standardı önlemler alırız.
+</p>
+
+<h2>12. Bu politikadaki değişiklikler</h2>
+<p>
+  Uygulama geliştikçe bu politikayı güncelleyebiliriz. Önemli değişiklikler, bu sayfanın başındaki
+  "son güncelleme" tarihinin güncellenmesiyle yansıtılır. Bu sayfayı zaman zaman gözden geçirmeni
+  öneririz.
+</p>
+
+<h2>13. İletişim</h2>
+<p>
+  Bu politika veya verinle ilgili soru, talep ya da şikayetlerin için:
+  <a href="mailto:egoragames@gmail.com">egoragames@gmail.com</a>
+</p>
+
+<footer>
+  The Process — Egora Games
+</footer>
+
+</body>
+</html>
