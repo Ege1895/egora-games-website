@@ -73,6 +73,8 @@ export type Dictionary = {
     features: string;
     trailer: string;
     screenshots: string;
+    support: string;
+    privacyPolicy: string;
   };
   aboutHero: {
     badge: string;

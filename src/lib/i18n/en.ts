@@ -93,6 +93,8 @@ export const en: Dictionary = {
     features: "Features",
     trailer: "Trailer",
     screenshots: "Screenshots",
+    support: "Support",
+    privacyPolicy: "Privacy Policy",
   },
   aboutHero: {
     badge: "Our Story",

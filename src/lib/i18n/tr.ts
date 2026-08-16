@@ -92,6 +92,8 @@ export const tr: Dictionary = {
     features: "Özellikler",
     trailer: "Fragman",
     screenshots: "Ekran Görüntüleri",
+    support: "Destek",
+    privacyPolicy: "Gizlilik Politikası",
   },
   aboutHero: {
     badge: "Hikayemiz",

@@ -133,6 +133,23 @@ export function GameDetail({ game }: { game: Game }) {
           </Container>
         </section>
       )}
+
+      <section className="border-t border-border py-8">
+        <Container className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-foreground-muted">
+          <a
+            href={`/games/${game.slug}/support/${locale}/`}
+            className="transition-colors hover:text-foreground"
+          >
+            {t.gameDetail.support}
+          </a>
+          <a
+            href={`/games/${game.slug}/privacy-policy/${locale}/`}
+            className="transition-colors hover:text-foreground"
+          >
+            {t.gameDetail.privacyPolicy}
+          </a>
+        </Container>
+      </section>
     </main>
   );
 }
