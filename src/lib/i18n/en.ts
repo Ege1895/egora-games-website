@@ -210,4 +210,28 @@ export const en: Dictionary = {
     "Nintendo Switch": "Nintendo Switch",
     Mobile: "Mobile",
   },
+  accountDeletion: {
+    eyebrow: "Egoractive",
+    title: "Account Deletion",
+    intro:
+      "To delete your account and personal data in the Egoractive app, follow the steps below.",
+    memberSectionTitle: "Deleting a Member or Trainer account",
+    steps: [
+      "Open the Egoractive app and sign in with your phone number.",
+      'Go to the "Profile" tab.',
+      'Tap "Delete my account."',
+      "Read the warning on the confirmation screen, check the confirmation box, then confirm the deletion.",
+      "Your account and login information are deleted immediately and permanently. You cannot sign in again with the same phone number — to use the app again, your gym's admin will need to add you back.",
+    ],
+    dataDeletedTitle: "Data deleted",
+    dataDeletedText:
+      "Your name, phone number, and the login record tied to your account are deleted immediately and irreversibly.",
+    dataRetainedTitle: "Data retained",
+    dataRetainedText:
+      "Records held by your gym (e.g. past class attendance, purchased package/payment records, measurement history) continue to be retained for the gym's accounting and health-tracking obligations — however, these records are no longer viewable or accessible via your deleted user identity, and remain only in the gym's own archive.",
+    adminSectionTitle: "Deleting a Gym Admin account",
+    adminTextBefore:
+      "There is currently no self-service option in the app to fully delete gym admin accounts and gym data. You can send your request to ",
+    adminTextAfter: " and it will be processed within a reasonable time.",
+  },
 };

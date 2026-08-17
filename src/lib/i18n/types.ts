@@ -137,4 +137,18 @@ export type Dictionary = {
     "Nintendo Switch": string;
     Mobile: string;
   };
+  accountDeletion: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    memberSectionTitle: string;
+    steps: string[];
+    dataDeletedTitle: string;
+    dataDeletedText: string;
+    dataRetainedTitle: string;
+    dataRetainedText: string;
+    adminSectionTitle: string;
+    adminTextBefore: string;
+    adminTextAfter: string;
+  };
 };

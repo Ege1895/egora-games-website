@@ -209,4 +209,29 @@ export const tr: Dictionary = {
     "Nintendo Switch": "Nintendo Switch",
     Mobile: "Mobil",
   },
+  accountDeletion: {
+    eyebrow: "Egoractive",
+    title: "Hesap Silme",
+    intro:
+      "Egoractive (Egora Games) uygulamasında hesabınızı ve kişisel verilerinizi silmek için aşağıdaki adımları izleyin.",
+    memberSectionTitle: "Üye veya Antrenör hesabı silme",
+    steps: [
+      "Egoractive uygulamasını açın ve telefon numaranızla giriş yapın.",
+      '"Profilim" sekmesine gidin.',
+      '"Hesabımı sil" seçeneğine dokunun.',
+      "Onay ekranındaki uyarıyı okuyup onay kutusunu işaretleyin, ardından silme işlemini onaylayın.",
+      "Hesabınız ve giriş bilgileriniz anında ve kalıcı olarak silinir. Aynı telefon numarasıyla tekrar giriş yapamazsınız — yeniden kullanmak isterseniz salonunuzun yöneticisinin sizi tekrar eklemesi gerekir.",
+    ],
+    dataDeletedTitle: "Silinen veriler",
+    dataDeletedText:
+      "Ad, telefon numarası ve hesabınıza bağlı giriş kaydı anında ve geri döndürülemez şekilde silinir.",
+    dataRetainedTitle: "Saklanan veriler",
+    dataRetainedText:
+      "Bağlı olduğunuz salonun kayıtlarında (ör. geçmiş ders katılımları, satın alınan paket/ödeme kayıtları, ölçüm geçmişi) salon işletmesinin muhasebe ve sağlık takibi yükümlülükleri gereği saklanmaya devam eder — ancak bu kayıtlar artık silinen kullanıcı kimliğinizle görüntülenemez/erişilemez durumdadır, yalnızca salonun kendi arşivinde kalır.",
+    adminSectionTitle: "Salon Yöneticisi (Admin) hesabı silme",
+    adminTextBefore:
+      "Salon yöneticisi hesapları ve salon verilerinin tamamen silinmesi için uygulama içinde şu an self-servis bir seçenek bulunmuyor. Talebinizi ",
+    adminTextAfter:
+      " adresine göndererek iletebilirsiniz; talebiniz makul bir süre içinde işleme alınır.",
+  },
 };
