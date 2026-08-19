@@ -56,7 +56,10 @@ export const GAMES: Game[] = [
     // App Store: production/yayında. Google Play: inceleme sürecinde (url yok -> Coming Soon).
     storeLinks: [
       { label: "App Store", url: "https://apps.apple.com/app/id6779168759" },
-      { label: "Google Play" },
+      {
+        label: "Google Play",
+        url: "https://play.google.com/store/apps/details?id=com.egoragames.nublox&pcampaignid=web_share",
+      },
     ],
   },
   {
@@ -116,7 +119,16 @@ export const GAMES: Game[] = [
       },
     ],
     // Her iki mağazada da test sürecinde (url yok -> Coming Soon).
-    storeLinks: [{ label: "App Store" }, { label: "Google Play" }],
+    storeLinks: [
+      {
+        label: "App Store",
+        url: "https://apps.apple.com/tr/app/the-process-foundry/id6794467330",
+      },
+      {
+        label: "Google Play",
+        url: "https://play.google.com/store/apps/details?id=com.egoragames.theprocess&pcampaignid=web_share",
+      },
+    ],
   },
 ];
 
