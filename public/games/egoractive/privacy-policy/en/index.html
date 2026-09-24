@@ -35,6 +35,14 @@
     margin: 18px 0;
     font-size: 0.92rem;
   }
+  .health-box {
+    background: #fdf0ef;
+    border: 1px solid #f0cfcc;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 18px 0;
+    font-size: 0.92rem;
+  }
   a { color: #a8641f; }
   .lang-switch { margin-bottom: 24px; font-size: 0.9rem; }
   footer { margin-top: 48px; color: #767676; font-size: 0.85rem; }
@@ -45,7 +53,7 @@
 <div class="lang-switch"><a href="../tr/">Türkçe için tıklayın / Read in Turkish</a></div>
 
 <h1>Privacy Policy</h1>
-<p class="subtitle">Egoractive — last updated: August 28, 2026</p>
+<p class="subtitle">Egoractive — last updated: September 24, 2026</p>
 
 <h2>1. Introduction</h2>
 <div class="box">
@@ -54,6 +62,9 @@
   the Egoractive mobile application (the "App"). Egoractive is a gym and personal
   training studio management tool used by studio admins, trainers, and members. We are
   committed to protecting your privacy and being transparent about our data practices.
+  This policy should be read together with our
+  <a href="../../terms-of-use/en/">Terms of Use</a>, which governs your use of the App,
+  including subscription terms.
 </div>
 
 <h2>2. Who This Policy Applies To</h2>
@@ -76,7 +87,8 @@
 <p>You or your Gym's Admin/Trainer may provide the following to create and operate your account:</p>
 <ul>
   <li>Full name</li>
-  <li>Phone number (used to sign in — we send a one-time verification code, we do not store passwords)</li>
+  <li>Phone number (used to sign in — we send a one-time verification code by SMS, we do not store passwords)</li>
+  <li>Email address (used to send a one-time verification code when signing in by email, and for account-related communication)</li>
   <li>Gender (optional)</li>
   <li>Role within the Gym (admin, trainer, or member)</li>
 </ul>
@@ -91,14 +103,20 @@
   <li>Studio expenses and estimated revenue (Admin-only financial data)</li>
   <li>Member feedback submitted after sessions</li>
   <li>Achievement badges earned by members</li>
+  <li>The Gym's logo image, uploaded by the Gym's Admin</li>
 </ul>
 
-<h3>3.3 Body Measurements</h3>
-<div class="box">
-  With an Admin's or Trainer's input, the App can store optional body measurement
-  entries (such as weight and body composition figures) for a member, used solely to
-  track fitness progress within the Gym. This data is only visible to the member
-  themselves, their assigned Trainer, and their Gym's Admin — never shared outside the Gym.
+<h3>3.3 Body Measurements (Health Data)</h3>
+<div class="health-box">
+  <strong>This is sensitive health-related data.</strong> With an Admin's or Trainer's
+  input, the App can store optional body measurement entries (such as weight and body
+  composition figures) for a member, used solely to track fitness progress within the
+  Gym. Because this qualifies as health data (and as a special category of personal
+  data under applicable law, including KVKK Art. 6 in Türkiye and GDPR Art. 9 where
+  applicable), we only process it with the consent of the member it belongs to, and it
+  is only visible to the member themselves, their assigned Trainer, and their Gym's
+  Admin — it is never shared outside the Gym or used for advertising. This data is
+  permanently deleted when the member's account is deleted (see Section 8).
 </div>
 
 <h3>3.4 Notifications</h3>
@@ -110,10 +128,21 @@
 
 <h3>3.5 Subscription & Purchase Information</h3>
 <p>
-  Gym Admins can subscribe to a paid plan through Apple's App Store or Google Play. All
-  payment processing is handled entirely by Apple/Google — we never receive or store
+  Gym Admins can subscribe to Egoractive's Gym management features on a monthly or
+  annual, auto-renewing basis, purchased through Apple's App Store or Google Play.
+</p>
+<ul>
+  <li>The subscription automatically renews for the same length (monthly or annual) unless it is canceled at least 24 hours before the end of the current period.</li>
+  <li>Payment is charged to your Apple ID or Google account at confirmation of purchase, and again at the start of each renewal period.</li>
+  <li>Pricing is displayed in the App and on the App Store / Google Play listing before purchase, and may vary by region.</li>
+  <li>You can manage or cancel your subscription at any time from your device's App Store or Google Play account settings — subscriptions cannot be canceled from within the App itself.</li>
+  <li>Any unused portion of a free trial period, if offered, is forfeited once a paid subscription is purchased.</li>
+</ul>
+<p>
+  All payment processing is handled entirely by Apple/Google — we never receive or store
   your card details. We receive a purchase receipt from Apple/Google, which we use only
-  to verify and activate your subscription status.
+  to verify and activate your subscription status. Full subscription terms are set out in
+  our <a href="../../terms-of-use/en/">Terms of Use</a>.
 </p>
 
 <h3>3.6 Usage & Device Data</h3>
@@ -121,7 +150,8 @@
   We use Firebase Analytics to understand feature usage in an aggregated, non-identifying
   way (e.g., which screens are used most). We also use Firebase Remote Config to safely
   deliver app configuration and text without a store update. Standard technical data
-  (device type, OS version, app version, crash diagnostics) may be collected automatically.
+  (device type, OS version, app version, crash diagnostics collected via Firebase
+  Crashlytics) may be collected automatically.
 </p>
 
 <h2>4. How We Use Information</h2>
@@ -148,8 +178,8 @@
 <p>The App integrates the following third-party services, each governed by its own privacy policy:</p>
 <table>
   <tr><th>Service</th><th>Purpose</th></tr>
-  <tr><td>Google Firebase (Firestore, Auth, Functions, Cloud Messaging, Remote Config, Analytics)</td><td>Core app infrastructure, authentication, and aggregated analytics</td></tr>
-  <tr><td>Google AdMob</td><td>Displays ads to Gyms on the free plan (not shown to paid subscribers). Where required (e.g., EEA/UK), we request your consent before showing personalized ads.</td></tr>
+  <tr><td>Google Firebase (Firestore, Auth, Functions, Cloud Messaging, Remote Config, Analytics, Crashlytics)</td><td>Core app infrastructure, authentication, aggregated analytics, and crash reporting</td></tr>
+  <tr><td>Google AdMob</td><td>Displays banner and interstitial ads to Gyms on the free plan (not shown to paid subscribers). Where required (e.g., EEA/UK), we request your consent, via an in-app consent form, before showing personalized ads or using an advertising identifier.</td></tr>
   <tr><td>Apple App Store / Google Play</td><td>Handles subscription payments and provides purchase receipts we use for verification</td></tr>
 </table>
 
@@ -163,12 +193,21 @@
 
 <h2>8. Data Retention & Deletion</h2>
 <p>
-  We retain account and Gym data for as long as the account is active. A member's data
-  can be removed by their Gym's Admin at any time from within the App. If you would like
-  your account and associated data fully deleted (for example, if you no longer have
-  access to your Gym's Admin), contact us at the email below and we will process your
-  request within a reasonable timeframe, except where we are required to retain certain
-  records (e.g., financial records) for legal or accounting purposes.
+  We retain account and Gym data for as long as the account is active. Members and
+  Trainers can delete their own account at any time directly within the App
+  (<strong>Profile → Delete my account</strong>); see our
+  <a href="../../account-deletion/">Account Deletion</a> page for the exact steps. When you
+  delete your account:
+</p>
+<ul>
+  <li><strong>Deleted immediately and permanently:</strong> your name, phone number, email address, login credentials, and any body measurement / health data (Section 3.3) tied to your account.</li>
+  <li><strong>Retained as part of the Gym's business record:</strong> your past session attendance, purchased package/payment records, and any feedback you submitted — including your name within those records — because Gyms have accounting obligations and rely on historical reports remaining accurate and unchanged after a member leaves. These retained records are no longer linked to an active, sign-in-capable account, and your health/body measurement data is not part of them, as it is fully deleted.</li>
+</ul>
+<p>
+  Gym Admin accounts and full Gym data currently cannot be self-deleted in the App. To
+  request deletion of a Gym Admin account, contact us at the email below; we process
+  such requests within a reasonable timeframe, except where we are required to retain
+  certain records (e.g., financial records) for legal or accounting purposes.
 </p>
 
 <h2>9. Your Rights</h2>
@@ -178,7 +217,7 @@
   <li>Request correction of inaccurate data</li>
   <li>Request deletion of your data</li>
   <li>Object to or restrict certain processing</li>
-  <li>Withdraw consent (e.g., for personalized ads) at any time</li>
+  <li>Withdraw consent (e.g., for personalized ads, or for processing your health data) at any time</li>
 </ul>
 <p>To exercise any of these rights, contact us using the details below.</p>
 

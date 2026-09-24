@@ -225,10 +225,10 @@ export const en: Dictionary = {
     ],
     dataDeletedTitle: "Data deleted",
     dataDeletedText:
-      "Your name, phone number, and the login record tied to your account are deleted immediately and irreversibly.",
+      "Your name, phone number, email address, the login record tied to your account, and any body measurement / health data are deleted immediately and irreversibly.",
     dataRetainedTitle: "Data retained",
     dataRetainedText:
-      "Records held by your gym (e.g. past class attendance, purchased package/payment records, measurement history) continue to be retained for the gym's accounting and health-tracking obligations — however, these records are no longer viewable or accessible via your deleted user identity, and remain only in the gym's own archive.",
+      "Records held by your gym (e.g. past class attendance, purchased package/payment records, and any feedback you submitted) — including your name within those records — continue to be retained for the gym's accounting obligations and to keep past reports accurate. These records are no longer linked to an active, sign-in-capable account, and your body measurement / health data is not part of them, since that data is fully deleted.",
     adminSectionTitle: "Deleting a Gym Admin account",
     adminTextBefore:
       "There is currently no self-service option in the app to fully delete gym admin accounts and gym data. You can send your request to ",

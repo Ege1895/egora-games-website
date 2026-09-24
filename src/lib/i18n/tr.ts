@@ -224,10 +224,10 @@ export const tr: Dictionary = {
     ],
     dataDeletedTitle: "Silinen veriler",
     dataDeletedText:
-      "Ad, telefon numarası ve hesabınıza bağlı giriş kaydı anında ve geri döndürülemez şekilde silinir.",
+      "Adınız, telefon numaranız, e-posta adresiniz, hesabınıza bağlı giriş kaydı ve varsa vücut ölçümü/sağlık verileriniz anında ve geri döndürülemez şekilde silinir.",
     dataRetainedTitle: "Saklanan veriler",
     dataRetainedText:
-      "Bağlı olduğunuz salonun kayıtlarında (ör. geçmiş ders katılımları, satın alınan paket/ödeme kayıtları, ölçüm geçmişi) salon işletmesinin muhasebe ve sağlık takibi yükümlülükleri gereği saklanmaya devam eder — ancak bu kayıtlar artık silinen kullanıcı kimliğinizle görüntülenemez/erişilemez durumdadır, yalnızca salonun kendi arşivinde kalır.",
+      "Bağlı olduğunuz salonun kayıtlarında (ör. geçmiş ders katılımları, satın alınan paket/ödeme kayıtları, gönderdiğiniz geri bildirimler) — adınız dahil — salon işletmesinin muhasebe yükümlülükleri ve geçmiş raporların doğruluğunun korunması gereği saklanmaya devam eder. Bu kayıtlar artık aktif, giriş yapılabilir bir hesapla bağlantılı değildir ve vücut ölçümü/sağlık verileriniz bu kayıtların parçası değildir — o veri tamamen silinir.",
     adminSectionTitle: "Salon Yöneticisi (Admin) hesabı silme",
     adminTextBefore:
       "Salon yöneticisi hesapları ve salon verilerinin tamamen silinmesi için uygulama içinde şu an self-servis bir seçenek bulunmuyor. Talebinizi ",
