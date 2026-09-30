@@ -242,4 +242,12 @@ export const tr: Dictionary = {
     homeButton: "Anasayfaya Dön",
     gamesButton: "Oyunlarımızı Keşfedin",
   },
+  errorPage: {
+    eyebrow: "Hata",
+    title: "Bir şeyler ters gitti",
+    description:
+      "Beklenmedik bir hata oluştu. Tekrar deneyebilir ya da anasayfaya dönebilirsiniz.",
+    retryButton: "Tekrar Dene",
+    homeButton: "Anasayfaya Dön",
+  },
 };

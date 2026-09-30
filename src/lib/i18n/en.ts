@@ -242,4 +242,12 @@ export const en: Dictionary = {
     homeButton: "Back to Home",
     gamesButton: "Explore Our Games",
   },
+  errorPage: {
+    eyebrow: "Error",
+    title: "Something went wrong",
+    description:
+      "An unexpected error occurred. Try again, or head back to the homepage.",
+    retryButton: "Try Again",
+    homeButton: "Back to Home",
+  },
 };

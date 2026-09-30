@@ -158,4 +158,11 @@ export type Dictionary = {
     homeButton: string;
     gamesButton: string;
   };
+  errorPage: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    retryButton: string;
+    homeButton: string;
+  };
 };
