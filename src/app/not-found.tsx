@@ -1,7 +1,6 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { GradientBackdrop } from "@/components/ui/GradientBackdrop";
 import { useLocale } from "@/lib/i18n/LocaleContext";
@@ -14,7 +13,9 @@ export default function NotFound() {
       <section className="relative flex flex-1 items-center overflow-hidden py-24 sm:py-32">
         <GradientBackdrop />
         <Container className="relative flex flex-col items-center gap-6 text-center">
-          <Eyebrow>{t.notFound.eyebrow}</Eyebrow>
+          <span className="font-mono text-7xl font-bold tracking-tight text-accent-ink sm:text-8xl">
+            {t.notFound.eyebrow}
+          </span>
           <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
             {t.notFound.title}
           </h1>
