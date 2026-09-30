@@ -234,4 +234,12 @@ export const en: Dictionary = {
       "There is currently no self-service option in the app to fully delete gym admin accounts and gym data. You can send your request to ",
     adminTextAfter: " and it will be processed within a reasonable time.",
   },
+  notFound: {
+    eyebrow: "404",
+    title: "Page not found",
+    description:
+      "The page you're looking for doesn't exist or may have moved. Let's get you back on track.",
+    homeButton: "Back to Home",
+    gamesButton: "Explore Our Games",
+  },
 };

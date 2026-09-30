@@ -234,4 +234,12 @@ export const tr: Dictionary = {
     adminTextAfter:
       " adresine göndererek iletebilirsiniz; talebiniz makul bir süre içinde işleme alınır.",
   },
+  notFound: {
+    eyebrow: "404",
+    title: "Sayfa bulunamadı",
+    description:
+      "Aradığınız sayfa mevcut değil ya da taşınmış olabilir. Sizi doğru yere yönlendirelim.",
+    homeButton: "Anasayfaya Dön",
+    gamesButton: "Oyunlarımızı Keşfedin",
+  },
 };

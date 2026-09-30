@@ -151,4 +151,11 @@ export type Dictionary = {
     adminTextBefore: string;
     adminTextAfter: string;
   };
+  notFound: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    homeButton: string;
+    gamesButton: string;
+  };
 };
