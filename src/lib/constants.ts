@@ -26,3 +26,5 @@ export const CONTACT_INFO = {
 export const CONTACT_API_ENDPOINT = "/api/contact";
 // Aynı worker, Brevo Contacts API'siyle kişiyi bir listeye ekler (e-posta göndermez)
 export const NEWSLETTER_API_ENDPOINT = "/api/newsletter";
+// Cloudflare Turnstile site key (public). Secret key worker'da TURNSTILE_SECRET_KEY olarak durur.
+export const TURNSTILE_SITE_KEY = "0x4AAAAAAFMNCDfriMecXm20";

@@ -1,5 +1,6 @@
 export interface Env {
   BREVO_API_KEY: string;
+  TURNSTILE_SECRET_KEY: string;
 }
 
 const RECIPIENT_EMAIL = "egoragames@gmail.com";
@@ -124,12 +125,43 @@ async function parseBody(request: Request): Promise<Record<string, string>> {
   );
 }
 
+async function verifyTurnstile(
+  token: string,
+  request: Request,
+  env: Env
+): Promise<boolean> {
+  if (!token) return false;
+  const body = new FormData();
+  body.append("secret", env.TURNSTILE_SECRET_KEY);
+  body.append("response", token);
+  const ip = request.headers.get("CF-Connecting-IP");
+  if (ip) body.append("remoteip", ip);
+
+  try {
+    const res = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      { method: "POST", body }
+    );
+    const result = (await res.json()) as { success?: boolean };
+    return result.success === true;
+  } catch {
+    return false;
+  }
+}
+
 async function handleContact(request: Request, env: Env): Promise<Response> {
   let data: Record<string, string>;
   try {
     data = await parseBody(request);
   } catch {
     return jsonResponse({ error: "Geçersiz istek gövdesi." }, 400);
+  }
+
+  if (!(await verifyTurnstile(String(data.turnstileToken || ""), request, env))) {
+    return jsonResponse(
+      { error: "İnsan doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin." },
+      403
+    );
   }
 
   const name = (data.name || "").trim();

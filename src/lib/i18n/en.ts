@@ -202,6 +202,7 @@ export const en: Dictionary = {
     successDescription: "We'll get back to you as soon as possible.",
     sendAnother: "Send another message",
     genericError: "Couldn't send your message. Please try again.",
+    captchaError: "Human verification failed. Please refresh the page and try again.",
   },
   platform: {
     PC: "PC",

@@ -201,6 +201,7 @@ export const tr: Dictionary = {
     successDescription: "En kısa sürede size dönüş yapacağız.",
     sendAnother: "Yeni mesaj gönder",
     genericError: "Mesaj gönderilemedi. Lütfen tekrar deneyin.",
+    captchaError: "İnsan doğrulaması başarısız oldu. Lütfen sayfayı yenileyip tekrar deneyin.",
   },
   platform: {
     PC: "PC",

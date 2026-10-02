@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { GradientBackdrop } from "@/components/ui/GradientBackdrop";
+import { Turnstile } from "@/components/ui/Turnstile";
 import { useLocale } from "@/lib/i18n/LocaleContext";
 import { CONTACT_API_ENDPOINT, CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
 
@@ -25,6 +26,13 @@ export function ContactSection() {
   const { t } = useLocale();
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [turnstileKey, setTurnstileKey] = useState(0);
+
+  function resetTurnstile() {
+    setTurnstileToken(null);
+    setTurnstileKey((k) => k + 1);
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -33,7 +41,10 @@ export function ContactSection() {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
+    const payload = {
+      ...Object.fromEntries(formData.entries()),
+      turnstileToken,
+    };
 
     try {
       const response = await fetch(CONTACT_API_ENDPOINT, {
@@ -52,6 +63,7 @@ export function ContactSection() {
     } catch (error) {
       setStatus("error");
       setErrorMessage(error instanceof Error ? error.message : t.contact.genericError);
+      resetTurnstile();
     }
   }
 
@@ -180,6 +192,15 @@ export function ContactSection() {
                 placeholder={t.contact.formMessagePlaceholder}
               />
 
+              <Turnstile
+                key={turnstileKey}
+                onToken={setTurnstileToken}
+                onError={() => {
+                  setStatus("error");
+                  setErrorMessage(t.contact.captchaError);
+                }}
+              />
+
               {status === "error" && (
                 <p role="alert" className="text-sm text-danger">
                   {errorMessage}
@@ -188,7 +209,7 @@ export function ContactSection() {
 
               <Button
                 type="submit"
-                disabled={status === "submitting"}
+                disabled={status === "submitting" || !turnstileToken}
                 className="mt-2 w-full"
               >
                 {status === "submitting" ? t.contact.sending : t.contact.sendMessage}

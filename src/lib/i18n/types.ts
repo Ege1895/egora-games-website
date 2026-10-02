@@ -129,6 +129,7 @@ export type Dictionary = {
     successDescription: string;
     sendAnother: string;
     genericError: string;
+    captchaError: string;
   };
   platform: {
     PC: string;
