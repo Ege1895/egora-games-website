@@ -130,6 +130,66 @@ export const GAMES: Game[] = [
       },
     ],
   },
+  {
+    slug: "egoractive",
+    kind: "app",
+    title: "Egoractive",
+    tagline: {
+      en: "Run your gym from one app",
+      tr: "Salonunu tek uygulamadan yönet",
+    },
+    description: {
+      en: "Egoractive is a management app for gyms and personal-training studios. Admins, trainers and members each get their own experience inside a single app: manage members, packages and a live session calendar, keep an eye on revenue, expenses and trainer performance, let members confirm their attendance, track body measurements and reward progress with badges. Every gym can set its own logo and theme colors, and the app works in both English and Turkish.",
+      tr: "Egoractive, spor salonları ve PT stüdyoları için bir yönetim uygulaması. Yönetici, antrenör ve üye rollerinin her biri tek uygulama içinde kendi deneyimine sahip: üyeleri, paketleri ve canlı ders takvimini yönetin, ciro, gider ve antrenör performansını takip edin, üyeler derse katılımını onaylasın, ölçümlerini izlesin ve gelişimini rozetlerle ödüllendirsin. Her salon kendi logosunu ve tema renklerini belirleyebilir; uygulama Türkçe ve İngilizce çalışır.",
+    },
+    coverImage: "/images/games/egoractive/icon.png",
+    bannerImage: "/images/games/egoractive/banner.jpg",
+    ogImage: "/images/games/egoractive/og-image.jpg",
+    screenshotStyle: "flat",
+    screenshots: {
+      en: [1, 2, 3, 4, 5, 6, 7, 8].map((i) => `/images/games/egoractive/screenshots/en/${i}.webp`),
+      tr: [1, 2, 3, 4, 5, 6, 7, 8].map((i) => `/images/games/egoractive/screenshots/tr/${i}.webp`),
+    },
+    genre: { en: "Gym Management", tr: "Spor Salonu Yönetimi" },
+    platforms: ["Mobile"],
+    features: [
+      {
+        en: "Three roles, one app — separate Admin, Trainer and Member experiences",
+        tr: "Tek uygulamada üç rol — Yönetici, Antrenör ve Üye için ayrı deneyimler",
+      },
+      {
+        en: "Live session calendar with trainer schedules and one-tap booking",
+        tr: "Antrenör programlarıyla canlı ders takvimi ve tek dokunuşla rezervasyon",
+      },
+      {
+        en: "Member and package management — sign up a new member and pick a package in seconds",
+        tr: "Üye ve paket yönetimi — yeni üyeyi kaydedin, paketi saniyeler içinde seçin",
+      },
+      {
+        en: "Revenue, expenses, payments and trainer performance at a glance",
+        tr: "Ciro, gider, ödemeler ve antrenör performansı tek bakışta",
+      },
+      {
+        en: "Attendance confirmation: members tell you if they are coming",
+        tr: "Katılım onayı: üyeler derse gelip gelmeyeceğini bildirir",
+      },
+      {
+        en: "Body measurement tracking with progress charts and achievement badges",
+        tr: "İlerleme grafikleriyle vücut ölçüm takibi ve başarı rozetleri",
+      },
+      {
+        en: "Your gym, your brand — custom logo and theme colors, in English and Turkish",
+        tr: "Senin salonun, senin markan — özel logo ve tema renkleri, Türkçe ve İngilizce",
+      },
+    ],
+    storeLinks: [
+      { label: "App Store", url: "https://apps.apple.com/us/app/egoractive/id6802342121" },
+      {
+        label: "Google Play",
+        url: "https://play.google.com/store/apps/details?id=com.egoragames.egoractive&pcampaignid=web_share",
+      },
+    ],
+  },
 ];
 
 export function getGameBySlug(slug: string) {

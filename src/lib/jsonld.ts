@@ -75,7 +75,8 @@ export function softwareApplicationJsonLd(game: Game) {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: game.title,
-    applicationCategory: "GameApplication",
+    applicationCategory:
+      game.kind === "app" ? "BusinessApplication" : "GameApplication",
     operatingSystem: gameOperatingSystems(game),
     url: liveStoreLink?.url ?? `${SITE_URL}/games/${game.slug}`,
     image: `${SITE_URL}${game.coverImage}`,

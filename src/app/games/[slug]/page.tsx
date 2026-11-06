@@ -44,7 +44,7 @@ export default async function GamePage({
 
   return (
     <>
-      <JsonLd data={videoGameJsonLd(game)} />
+      {game.kind !== "app" && <JsonLd data={videoGameJsonLd(game)} />}
       <JsonLd data={softwareApplicationJsonLd(game)} />
       <JsonLd
         data={breadcrumbJsonLd([

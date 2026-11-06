@@ -121,15 +121,35 @@ export function GameDetail({ game }: { game: Game }) {
             <h2 className="text-2xl font-bold text-foreground">
               {t.gameDetail.screenshots}
             </h2>
-            <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
-              {screenshots.map((screenshot, i) => (
-                <PhoneFrame
-                  key={screenshot}
-                  src={screenshot}
-                  alt={`${game.title} screenshot ${i + 1}`}
-                />
-              ))}
-            </div>
+            {game.screenshotStyle === "flat" ? (
+              <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+                {screenshots.map((screenshot, i) => (
+                  <div
+                    key={screenshot}
+                    className="relative aspect-[1242/2688] overflow-hidden rounded-3xl border border-border bg-background-elevated shadow-2xl"
+                  >
+                    <Image
+                      src={screenshot}
+                      alt={`${game.title} screenshot ${i + 1}`}
+                      fill
+                      loading="lazy"
+                      sizes="(min-width: 1024px) 25vw, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
+                {screenshots.map((screenshot, i) => (
+                  <PhoneFrame
+                    key={screenshot}
+                    src={screenshot}
+                    alt={`${game.title} screenshot ${i + 1}`}
+                  />
+                ))}
+              </div>
+            )}
           </Container>
         </section>
       )}

@@ -4,6 +4,12 @@ export type Platform = "PC" | "PlayStation" | "Xbox" | "Nintendo Switch" | "Mobi
 
 export type Game = {
   slug: string;
+  // Belirtilmezse "game". Oyun olmayan ürünler (örn. Egoractive) için "app":
+  // VideoGame JSON-LD'si üretilmez, kategori BusinessApplication olur.
+  kind?: "game" | "app";
+  // "phone" (varsayılan): ham ekran görüntüsü iPhone çerçevesine konur.
+  // "flat": görsel zaten çerçeveli/pazarlama tasarımı, çerçevesiz kartta gösterilir.
+  screenshotStyle?: "phone" | "flat";
   title: string; // proper noun — not translated
   tagline: LocalizedText;
   description: LocalizedText;
